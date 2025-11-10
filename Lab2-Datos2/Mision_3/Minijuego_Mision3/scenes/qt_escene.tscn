@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://d06hui30215kd"]
+
+[ext_resource type="Script" uid="uid://p18wmxrgj8e8" path="res://Mision_3/Minijuego_Mision3/scripts/qt1_escene.gd" id="1_f6bn8"]
+
+[node name="QTEscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6bn8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

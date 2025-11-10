@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://i353iyl77wko"]
+
+[ext_resource type="Script" uid="uid://bgg4pgjv70llg" path="res://scripts/conexion.gd" id="1_v7hyp"]
+[ext_resource type="Texture2D" uid="uid://cjitepsxew042" path="res://assets/Elira_Mision1.png" id="2_tmkp0"]
+
+[node name="Conexion" type="Line2D"]
+points = PackedVector2Array(477, 481)
+width = 2.0
+default_color = Color(0.0666667, 1, 1, 1)
+script = ExtResource("1_v7hyp")
+
+[node name="PesoLabel" type="Label" parent="."]
+offset_left = 305.0
+offset_top = 48.0
+offset_right = 330.0
+offset_bottom = 71.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 18)
+texture = ExtResource("2_tmkp0")
