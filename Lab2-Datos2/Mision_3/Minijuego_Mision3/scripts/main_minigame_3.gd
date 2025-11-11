@@ -2,20 +2,18 @@ extends Control
 
 const QTE1_SCENE = preload("res://Mision_3/Minijuego_Mision3/scenes/qte1.tscn")
 const IMAGE1_KEYS = [
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Malware.png", "key": KEY_1},
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Phising.png", "key": KEY_2 },
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/SQL Injection.png", "key": KEY_3 },
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Spyware.png", "key": KEY_4 }
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/cable_fibra.png", "key": KEY_1},
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/chip.png", "key": KEY_2 },
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/conector.png", "key": KEY_3 }
 ]
 const QTE2_SCENE = preload("res://Mision_3/Minijuego_Mision3/scenes/qte_2.tscn")
 const IMAGE2_KEYS = [
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Malware.png", "key": KEY_M},
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Phising.png", "key": KEY_P },
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/SQL Injection.png", "key": KEY_S },
-	{ "file": "res://Mision_3/Minijuego_Mision3/assests/Spyware.png", "key": KEY_Y }
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/archivo corrupto.png", "key": KEY_U},
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/virus.png", "key": KEY_V },
+	{ "file": "res://Mision_3/Minijuego_Mision3/assests/roto.png", "key": KEY_R}
 ]
 
-@export var points_to_win := 1000
+@export var points_to_win := 5000
 @export var points_per_success := 100
 @export var points_per_fast_success := 150
 @export var points_per_fail := -200

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://klprirwi5dwl"
-path="res://.godot/imported/SQL Injection.png-6d4e7f62cdaf608cd60de9bfdf7d08d0.ctex"
+uid="uid://unqdd6qk18lc"
+path="res://.godot/imported/background.png-165afa46fbcffbb0bdb78dfe210d31b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Minijuego_Mision3/assests/SQL Injection.png"
-dest_files=["res://.godot/imported/SQL Injection.png-6d4e7f62cdaf608cd60de9bfdf7d08d0.ctex"]
+source_file="res://Mision_3/Mision 3/assets/background.png"
+dest_files=["res://.godot/imported/background.png-165afa46fbcffbb0bdb78dfe210d31b6.ctex"]
 
 [params]
 

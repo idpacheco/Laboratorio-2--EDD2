@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7iiu4l8kdotk"
-path="res://.godot/imported/Phising.png-bcde5455e8ebf49b2e73a4d3ee1df1b1.ctex"
+uid="uid://cf8l6frvtth45"
+path="res://.godot/imported/box.png-cf0e999059850f9e475da1746a885951.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Minijuego_Mision3/assests/Phising.png"
-dest_files=["res://.godot/imported/Phising.png-bcde5455e8ebf49b2e73a4d3ee1df1b1.ctex"]
+source_file="res://Mision_3/Mision 3/assets/box.png"
+dest_files=["res://.godot/imported/box.png-cf0e999059850f9e475da1746a885951.ctex"]
 
 [params]
 

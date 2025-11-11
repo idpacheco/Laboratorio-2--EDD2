@@ -6,22 +6,89 @@ var conexiones_jugador: Array = []
 var grafo: Dictionary = {}
 var seleccionando: bool = false
 var seleccion_1: int = -1
-var prim = preload("res://Prim.gd").new()
+var prim = preload("res://Mision_3/Mision 3/Prim.gd").new()
+const INF = 99999
 
 func _ready():
 	preparar_estaciones_y_conexiones()
 	$"../UI/BotonConectar".pressed.connect(_on_BotonConectar_pressed)
 	$"../UI/BotonConfirmar".pressed.connect(_on_BotonConfirmar_pressed)
-	#$UI/BotonVerOptima.pressed.connect(_on_BotonVerOptima_pressed)
+	#$"../UI/BotonVerOptima".pressed.connect(_on_BotonVerOptima_pressed)
 
 func preparar_estaciones_y_conexiones():
 	var ancho_pantalla = 640
 	var alto_pantalla = 360
-	var cantidad_estaciones:int = 6 + RandomNumberGenerator.new().randi_range(0, 4)
-	var centro = Vector2(ancho_pantalla / 2, alto_pantalla / 2)
-	var radio = min(ancho_pantalla, alto_pantalla) / 2 - 40 # margen para evitar el borde
-
-	# Limpia estaciones y conexiones visuales previas
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	# ===== 3 GRAFOS FIJOS =====
+	var grafos_fijos = [
+		{
+			"positions": [
+				Vector2(280, 120),
+				Vector2(380, 80),
+				Vector2(480, 120),
+				Vector2(520, 240),
+				Vector2(360, 200),
+				Vector2(240, 240)
+			],
+			"edges": [
+				{"o":0,"d":1},
+				{"o":1,"d":2},
+				{"o":2,"d":3},
+				{"o":3,"d":4},
+				{"o":4,"d":5},
+				{"o":5,"d":0},
+				{"o":0,"d":2},
+				{"o":1,"d":4}
+			]
+		},
+		{
+			"positions": [
+				Vector2(240, 80),
+				Vector2(320, 80),
+				Vector2(340, 160),
+				Vector2(300, 250),
+				Vector2(520, 250)
+			],
+			"edges": [
+				{"o":0,"d":2},
+				{"o":1,"d":2},
+				{"o":3,"d":2},
+				{"o":4,"d":2},
+				{"o":0,"d":3},
+				{"o":1,"d":4}
+			]
+		},
+		{
+			"positions": [
+				Vector2(240, 80),
+				Vector2(340, 160),
+				Vector2(480, 80),
+				Vector2(500, 160),
+				Vector2(460, 230),
+				Vector2(300, 250),
+				Vector2(260, 160)
+			],
+			"edges": [
+				{"o":0,"d":1},
+				{"o":1,"d":2},
+				{"o":2,"d":3},
+				{"o":3,"d":4},
+				{"o":4,"d":5},
+				{"o":5,"d":6},
+				{"o":6,"d":0},
+				{"o":1,"d":5},
+				{"o":2,"d":4}
+			]
+		}
+	]
+	# ===== Selección aleatoria del grafo =====
+	var seleccionado = rng.randi_range(0, grafos_fijos.size() - 1)
+	var graf = grafos_fijos[seleccionado]
+	var posiciones = graf["positions"]
+	var aristas_definidas = graf["edges"]
+	var cantidad_estaciones = posiciones.size()
+	# --- LIMPIEZA ---
 	for child in $EstacionContainer.get_children():
 		$EstacionContainer.remove_child(child)
 		child.queue_free()
@@ -32,33 +99,24 @@ func preparar_estaciones_y_conexiones():
 	conexiones_posibles.clear()
 	conexiones_jugador.clear()
 	grafo.clear()
-
-	# Distribuye nodos en círculo
+	# --- INSTANCIAR ESTACIONES ---
 	for i in range(cantidad_estaciones):
-		var angulo = TAU * float(i) / float(cantidad_estaciones)
-		var pos = centro + Vector2(cos(angulo), sin(angulo)) * radio
-		var esta = preload("res://scenes/estacion.tscn").instantiate()
+		var pos = posiciones[i]
+		var esta = preload("res://Mision_3/Mision 3/scenes/estacion.tscn").instantiate()
 		esta.nombre = "Estacion_%d" % i
 		esta.posicion = pos
 		$EstacionContainer.add_child(esta)
 		estaciones.append(esta)
 		esta.input_event.connect(_on_estacion_input.bind(i))
-	
-	# --- RESALTAR NODO INICIAL ---
-	var idx_inicial = 0 # Puedes cambiar si el inicial varía
+	# --- RESALTAR INICIAL ---
+	var idx_inicial = 0
 	estaciones[idx_inicial].modulate = Color.BLUE
-
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-
-# Genera el grafo de conexiones posibles (usando Prim para el MST y agregando extras)
+	# --- GENERAR ARISTAS CON PESOS ALEATORIOS ---
 	var todas_aristas = []
-	for i in range(cantidad_estaciones):
-		for j in range(i+1, cantidad_estaciones):
-			var peso = rng.randi_range(1, 999)
-			todas_aristas.append({"origen": i, "destino": j, "costo": peso})
-
-
+	for a in aristas_definidas:
+		var peso = rng.randi_range(1, 999)
+		todas_aristas.append({"origen": a["o"], "destino": a["d"], "costo": peso})
+	# --- Grafo diccionario bidireccional (para Prim y lógica de conexiones) ---
 	grafo = {}
 	for i in range(cantidad_estaciones):
 		grafo["Estacion_%d" % i] = []
@@ -68,41 +126,19 @@ func preparar_estaciones_y_conexiones():
 		var cost = a["costo"]
 		grafo[o].append([d, cost])
 		grafo[d].append([o, cost])
-
-	var prim_result = prim.prim(grafo, "Estacion_0")
-	var aristas_seleccionadas = []
-	for conn in prim_result:
-		var idx_origen = int(conn[0].split("_")[1])
-		var idx_destino = int(conn[1].split("_")[1])
-		aristas_seleccionadas.append({"origen": idx_origen, "destino": idx_destino, "costo": conn[2]})
-
-# Declarar las variables que vas a usar:
-	var extra = rng.randi_range(1, cantidad_estaciones)
-	var usadas = {}
-	for a in aristas_seleccionadas:
-		usadas["%d-%d" % [a["origen"], a["destino"]]] = true
-		usadas["%d-%d" % [a["destino"], a["origen"]]] = true
-
-	var intentos = 0
-	while extra > 0 and intentos < 30:
-		var u = rng.randi_range(0, cantidad_estaciones-1)
-		var v = rng.randi_range(0, cantidad_estaciones-1)
-		if u != v and not usadas.has("%d-%d" % [u, v]):
-			var peso = rng.randi_range(1, 999)
-			aristas_seleccionadas.append({"origen": u, "destino": v, "costo": peso})
-			usadas["%d-%d" % [u, v]] = true
-			usadas["%d-%d" % [v, u]] = true
-			extra -= 1
-	intentos += 1
-
-	# Dibuja las conexiones visuales existentes
-	for a in aristas_seleccionadas:
-		var conn = preload("res://scenes/conexion.tscn").instantiate()
+	# --- Dibuja conexiones posibles ---
+	for a in todas_aristas:
+		var conn = preload("res://Mision_3/Mision 3/scenes/conexion.tscn").instantiate()
 		conn.inicializar(estaciones[a["origen"]], estaciones[a["destino"]], a["costo"])
 		conn.modulate = Color(0.8,0.8,0.8,0.5)
 		$ConexionContainer.add_child(conn)
 		conexiones_posibles.append(conn)
-# --- INTERACCION DEL JUGADOR
+
+func _on_BotonConectar_pressed():
+	seleccionando = true
+	seleccion_1 = -1
+	for esta in estaciones:
+		esta.modulate = Color.WHITE
 
 func _on_estacion_input(viewport, event: InputEvent, shape_idx: int, idx_estacion: int):
 	if seleccionando and event is InputEventMouseButton and event.pressed:
@@ -114,13 +150,7 @@ func _on_estacion_input(viewport, event: InputEvent, shape_idx: int, idx_estacio
 			estaciones[seleccion_1].modulate = Color.WHITE
 			seleccion_1 = -1
 
-func _on_BotonConectar_pressed():
-	seleccionando = true
-	seleccion_1 = -1
-	for esta in estaciones:
-		esta.modulate = Color.WHITE
-
-# --- NUEVA VERSION SOLO PERMITE SI ES CONEXION VALIDA DISPONIBLE ---
+# --- SOLO PERMITE SI ES CONEXION VALIDA DISPONIBLE ---
 func conectar_estaciones(origen_idx: int, destino_idx: int):
 	var esta_origen = estaciones[origen_idx]
 	var esta_destino = estaciones[destino_idx]
@@ -131,22 +161,21 @@ func conectar_estaciones(origen_idx: int, destino_idx: int):
 			conexion_visual_existente = true
 			break
 	if not conexion_visual_existente:
-		# Feedback visual de que no se puede
 		esta_origen.modulate = Color(1,0.6,0.2) # naranja
 		esta_destino.modulate = Color(1,0.6,0.2)
 		return
-
-	# ... AHORA SÍ continúa con la lógica original:
 	var costo = obtener_costo(origen_idx, destino_idx)
 	if costo == INF:
 		return
 	if not _generaria_ciclo(origen_idx, destino_idx):
-		var conexion = preload("res://scenes/conexion.tscn").instantiate()
-		conexion.inicializar(esta_origen, esta_destino, costo)
-		conexion.modulate = Color.YELLOW
-		$ConexionContainer.add_child(conexion)
-		conexiones_jugador.append(conexion)
-		mostrar_costo()
+# Encuentra la conexión visual existente
+		for conn in conexiones_posibles:
+			if (conn.origen == esta_origen and conn.destino == esta_destino) or \
+	   			(conn.origen == esta_destino and conn.destino == esta_origen):
+				conn.modulate = Color.YELLOW
+				conexiones_jugador.append(conn)
+				mostrar_costo()
+				return
 	else:
 		esta_origen.modulate = Color.RED
 		esta_destino.modulate = Color.RED
@@ -178,7 +207,7 @@ func _on_BotonConfirmar_pressed():
 	$"../UI/OptimoLabel".text = "Costo óptimo: %d (Prim)" % costo_optimo
 	_resaltar_mst(mst)
 
-
+# Si usas el botón de mostrar óptima, descomenta en _ready, y aquí:
 func _on_BotonVerOptima_pressed():
 	var mst = prim.prim(grafo, "Estacion_0")
 	_resaltar_mst(mst)
@@ -199,9 +228,6 @@ func _generaria_ciclo(origen_idx: int, destino_idx: int) -> bool:
 	var parent: Array = []
 	for i in range(estaciones.size()):
 		parent.append(i)
-	for i in range(estaciones.size()):
-		parent[i] = i
-
 	for conn in conexiones_jugador:
 		var idx1 = estaciones.find(conn.origen)
 		var idx2 = estaciones.find(conn.destino)

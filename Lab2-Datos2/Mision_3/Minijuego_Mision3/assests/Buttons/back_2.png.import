@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqhuygdiqj3sh"
-path="res://.godot/imported/Spyware.png-27a57e71036532eb0d1863d392e82154.ctex"
+uid="uid://drf3d1j5bvymq"
+path="res://.godot/imported/back_2.png-61ba33cb117483f6a3660afd334336cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Minijuego_Mision3/assests/Spyware.png"
-dest_files=["res://.godot/imported/Spyware.png-27a57e71036532eb0d1863d392e82154.ctex"]
+source_file="res://Mision_3/Minijuego_Mision3/assests/Buttons/back_2.png"
+dest_files=["res://.godot/imported/back_2.png-61ba33cb117483f6a3660afd334336cf.ctex"]
 
 [params]
 

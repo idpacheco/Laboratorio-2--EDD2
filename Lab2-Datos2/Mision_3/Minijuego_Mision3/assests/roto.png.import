@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5p0iihjdhr0c"
-path="res://.godot/imported/Malware.png-ab38e790ec1775c185793ae464d3b735.ctex"
+uid="uid://b0v7anqtyj2om"
+path="res://.godot/imported/roto.png-9b46e269182b0ce07e216057b5545b59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Minijuego_Mision3/assests/Malware.png"
-dest_files=["res://.godot/imported/Malware.png-ab38e790ec1775c185793ae464d3b735.ctex"]
+source_file="res://Mision_3/Minijuego_Mision3/assests/roto.png"
+dest_files=["res://.godot/imported/roto.png-9b46e269182b0ce07e216057b5545b59.ctex"]
 
 [params]
 

@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq7u726wmg7um"]
+[gd_scene load_steps=6 format=3 uid="uid://cq7u726wmg7um"]
 
-[ext_resource type="Script" uid="uid://ubynpohjhcr2" path="res://scenes/mapa.gd" id="1_4it05"]
+[ext_resource type="Script" uid="uid://ubynpohjhcr2" path="res://Mision_3/Mision 3/scenes/mapa.gd" id="1_4it05"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_6mpqr"]
+[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="2_pnq37"]
+[ext_resource type="Texture2D" uid="uid://bhhg2la2j7jm4" path="res://Mision_3/Mision 3/assets/box_3.png" id="4_p21qj"]
 
 [sub_resource type="GDScript" id="GDScript_g61wp"]
 
 [node name="Main_Mision3" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 640.0
+offset_bottom = 356.0
+texture = ExtResource("1_6mpqr")
+expand_mode = 1
+
+[node name="Box_" type="TextureRect" parent="."]
+offset_left = 199.0
+offset_top = 36.0
+offset_right = 568.0
+offset_bottom = 318.0
+texture = ExtResource("2_pnq37")
+expand_mode = 1
 
 [node name="Mapa" type="Node2D" parent="."]
 script = ExtResource("1_4it05")
@@ -16,40 +35,49 @@ script = SubResource("GDScript_g61wp")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="BotonConectar" type="Button" parent="UI"]
-offset_left = 572.0
-offset_top = 198.0
-offset_right = 616.0
-offset_bottom = 229.0
-text = "CON"
+[node name="TextureRect" type="TextureRect" parent="UI"]
+offset_left = 32.0
+offset_top = 45.0
+offset_right = 169.0
+offset_bottom = 150.0
+texture = ExtResource("4_p21qj")
+expand_mode = 1
 
-[node name="BotonConfirmar" type="Button" parent="UI"]
-offset_left = 558.0
-offset_top = 128.0
-offset_right = 610.0
-offset_bottom = 159.0
-text = "CONF"
+[node name="BotonConectar" type="Button" parent="UI"]
+offset_left = 77.0
+offset_top = 184.0
+offset_right = 121.0
+offset_bottom = 215.0
+text = "CON"
 
 [node name="BotonVerOptima" type="Button" parent="UI"]
 visible = false
-offset_left = 1029.4
-offset_top = 498.626
-offset_right = 1067.4
-offset_bottom = 529.626
+offset_left = 1051.4
+offset_top = 607.626
+offset_right = 1089.4
+offset_bottom = 638.626
 text = "VER"
 
+[node name="BotonConfirmar" type="Button" parent="UI"]
+offset_left = 71.0
+offset_top = 153.0
+offset_right = 123.0
+offset_bottom = 184.0
+text = "CONF"
+
 [node name="CostoLabel" type="Label" parent="UI"]
-offset_left = 540.0
-offset_top = 248.0
-offset_right = 580.0
-offset_bottom = 271.0
+offset_left = 48.0
+offset_top = 72.0
+offset_right = 156.0
+offset_bottom = 95.0
+text = "tu costo: 1234"
 
 [node name="OptimoLabel" type="Label" parent="UI"]
-offset_left = 299.0
-offset_top = 51.0
-offset_right = 339.0
-offset_bottom = 74.0
+offset_left = 48.0
+offset_top = 99.0
+offset_right = 156.0
+offset_bottom = 122.0
 
 [connection signal="pressed" from="UI/BotonConectar" to="Mapa" method="_on_boton_conectar_pressed"]
-[connection signal="pressed" from="UI/BotonConfirmar" to="Mapa" method="_on_boton_confirmar_pressed"]
 [connection signal="pressed" from="UI/BotonVerOptima" to="Mapa" method="_on_boton_ver_optima_pressed"]
+[connection signal="pressed" from="UI/BotonConfirmar" to="Mapa" method="_on_boton_confirmar_pressed"]
