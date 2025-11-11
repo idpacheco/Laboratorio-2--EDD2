@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1yhdld0gs173"]
+
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_a581n"]
+[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="2_qf8oh"]
+
+[node name="main_mision_2" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 640.0
+offset_bottom = 356.0
+texture = ExtResource("1_a581n")
+expand_mode = 1
+
+[node name="Box_" type="TextureRect" parent="."]
+offset_left = 75.0
+offset_top = 36.0
+offset_right = 568.0
+offset_bottom = 267.0
+texture = ExtResource("2_qf8oh")
+expand_mode = 1
