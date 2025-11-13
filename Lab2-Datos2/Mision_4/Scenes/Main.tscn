@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt0f0bao4ofmf"]
+
+[ext_resource type="Script" uid="uid://bxaj1ek6qppha" path="res://Mision_4/Scripts/main.gd" id="1_r150o"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r150o")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 518.0
+offset_top = 7.0
+offset_right = 622.0
+offset_bottom = 38.0
+text = "Reiniciar"
+
+[node name="NodesContainer" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="EdgesContainer" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="MensajeFinal" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CheckButtonAuto" type="CheckButton" parent="."]
+offset_left = 528.0
+offset_top = 308.0
+offset_right = 613.0
+offset_bottom = 339.0
+text = "Auto"
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[node name="TiempoLabel" type="Label" parent="."]
+offset_left = 19.0
+offset_top = 459.0
+offset_right = 112.0
+offset_bottom = 484.0
+
+[connection signal="toggled" from="CheckButtonAuto" to="." method="_on_button_auto_toggled"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
