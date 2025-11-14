@@ -14,12 +14,16 @@ const IMAGE2_KEYS = [
 ]
 
 @export var points_to_win := 5000
-@export var points_per_success := 100
-@export var points_per_fast_success := 150
-@export var points_per_fail := -200
+@export var points_to_lose := -900
+@export var points_per_success := 200
+@export var points_per_fast_success := 300
+@export var points_per_fail := -150
 @export var fast_time := 0.5
 
 @onready var score_label: Label = %ScoreLabel
+
+@onready var pause_layer = $PauseLayer
+@onready var pause_panel = preload("res://Mision_3/Minijuego_Mision3/scenes/pausa.tscn").instantiate()
 
 var score: int = 0
 var game_over: bool = false
@@ -27,12 +31,16 @@ var qte1_instance = null
 var qte2_instance = null
 
 func _ready():
+	randomize()
 	score = 0
 	game_over = false
 	_update_score()
 	_spawn_qte1()
 	_spawn_qte2()
+	pause_layer.add_child(pause_panel)
+	pause_panel.visible = false
 
+	
 func _spawn_qte1():
 	if game_over:
 		return
@@ -45,7 +53,6 @@ func _spawn_qte1():
 	add_child(qte1_instance)
 	qte1_instance.setup(image1, key1)
 	qte1_instance.finished.connect(func(success, elapsed): _on_qte1_finished(success, elapsed))
-	# Opcional: poner en coordenada específica si necesitas que no se superponga
 
 func _spawn_qte2():
 	if game_over:
@@ -59,7 +66,6 @@ func _spawn_qte2():
 	add_child(qte2_instance)
 	qte2_instance.setup(image2, key2)
 	qte2_instance.finished.connect(func(success, elapsed): _on_qte2_finished(success, elapsed))
-	# Opcional: poner en coordenada específica si necesitas que no se superponga
 
 func _on_qte1_finished(success: bool, elapsed: float):
 	if game_over:
@@ -72,10 +78,13 @@ func _on_qte1_finished(success: bool, elapsed: float):
 	else:
 		score += points_per_fail
 	_update_score()
+	# Comprobar victoria / derrota
 	if score >= points_to_win:
 		_game_win()
+	elif score <= points_to_lose:
+		_game_lose()
 	else:
-		_spawn_qte1() # Solo renace el QTE1
+		_spawn_qte1()
 
 func _on_qte2_finished(success: bool, elapsed: float):
 	if game_over:
@@ -88,10 +97,13 @@ func _on_qte2_finished(success: bool, elapsed: float):
 	else:
 		score += points_per_fail
 	_update_score()
+	# Comprobar victoria / derrota
 	if score >= points_to_win:
 		_game_win()
+	elif score <= points_to_lose:
+		_game_lose()
 	else:
-		_spawn_qte2() # Solo renace el QTE2
+		_spawn_qte2()
 
 func _update_score():
 	score_label.text = "Puntos: %d" % score
@@ -102,6 +114,28 @@ func _game_win():
 		qte1_instance.queue_free()
 	if qte2_instance:
 		qte2_instance.queue_free()
-	#SceneTransitions.change_scene_to_file("res://Level 1/scenes/listo.tscn")
-	#AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
-	#AudioManager.SFXPlayer.play()
+	# Aquí podrías cambiar de escena o reproducir un sonido
+	# SceneTransitions.change_scene_to_file("res://Level 1/scenes/listo.tscn")
+
+func _game_lose():
+	game_over = true
+	if qte1_instance:
+		qte1_instance.queue_free()
+	if qte2_instance:
+		qte2_instance.queue_free()
+	# Aquí podrías mostrar pantalla de derrota, reproducir SFX o cambiar de escena
+	# SceneTransitions.change_scene_to_file("res://ruta/a/derrota.tscn")
+		
+
+func _on_img_button_pressed() -> void:
+	print("SIRVE, HAY CLICK LOL")
+	if get_tree().paused:
+		get_tree().paused = false
+		pause_panel.visible = false
+	else:
+		get_tree().paused = true
+		pause_panel.visible = true
+
+func _on_pause_button_pressed() -> void:
+	print("SIRVE, HAY CLICK LOL")
+	get_tree().paused = !get_tree().paused # Cambia entre pausa y no pausa

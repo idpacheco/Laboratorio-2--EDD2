@@ -11,16 +11,10 @@ config_version=5
 [application]
 
 config/name="Lab2-Datos2"
-run/main_scene="uid://bughfyso16oex"
+run/main_scene="uid://c7br6s33tl2f4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Global="*res://mainMenu/Scripts/global.gd"
-AudioManager="*res://mainMenu/Assets/Audio/AudioManager.tscn"
-Settings="*res://mainMenu/Scripts/Settings.gd"
-SceneTransitions="*res://mainMenu/Scripts/scene_transitions.gd"
+<<<<<<<Updatedupstreamrun/main_scene="uid://bughfyso16oex"
 
 [display]
 
@@ -28,7 +22,7 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/stretch/scale_mode="integer"
 

@@ -44,10 +44,10 @@ texture = ExtResource("4_p21qj")
 expand_mode = 1
 
 [node name="BotonConectar" type="Button" parent="UI"]
-offset_left = 77.0
-offset_top = 184.0
-offset_right = 121.0
-offset_bottom = 215.0
+offset_left = 76.0
+offset_top = 186.0
+offset_right = 120.0
+offset_bottom = 217.0
 text = "CON"
 
 [node name="BotonVerOptima" type="Button" parent="UI"]
@@ -59,9 +59,9 @@ offset_bottom = 638.626
 text = "VER"
 
 [node name="BotonConfirmar" type="Button" parent="UI"]
-offset_left = 71.0
+offset_left = 76.0
 offset_top = 153.0
-offset_right = 123.0
+offset_right = 128.0
 offset_bottom = 184.0
 text = "CONF"
 

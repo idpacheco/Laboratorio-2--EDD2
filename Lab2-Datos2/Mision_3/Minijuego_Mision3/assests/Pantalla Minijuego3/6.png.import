@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj6gx4sijmjob"
-path="res://.godot/imported/pause_1.png-fa67ca9e802aae2415607fc0658fa2c5.ctex"
+uid="uid://cowerlgr6w3mv"
+path="res://.godot/imported/6.png-1a9c3297002063b9e88388f5da0b26b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Minijuego_Mision3/assests/Buttons/pause_1.png"
-dest_files=["res://.godot/imported/pause_1.png-fa67ca9e802aae2415607fc0658fa2c5.ctex"]
+source_file="res://Mision_3/Minijuego_Mision3/assests/Pantalla Minijuego3/6.png"
+dest_files=["res://.godot/imported/6.png-1a9c3297002063b9e88388f5da0b26b3.ctex"]
 
 [params]
 

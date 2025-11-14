@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://beosdw37suu0p"]
+
+[ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="1_syftj"]
+[ext_resource type="Script" uid="uid://c1pjo1ffpxa4r" path="res://Mision_3/Minijuego_Mision3/scripts/win.gd" id="1_vhvt0"]
+[ext_resource type="Texture2D" uid="uid://bmpl24j0twmqt" path="res://Mision_3/Minijuego_Mision3/assests/Pantalla Minijuego3/5.png" id="2_vhvt0"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_1.png" id="3_fmtqh"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_3.png" id="4_kl688"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_2.png" id="5_itljs"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vhvt0")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 359.0
+texture = ExtResource("1_syftj")
+expand_mode = 1
+
+[node name="text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 75.0
+offset_right = 482.0
+offset_bottom = 259.0
+texture = ExtResource("2_vhvt0")
+expand_mode = 1
+
+[node name="next_to_fase2" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 275.0
+offset_right = 362.0
+offset_bottom = 308.0
+texture_normal = ExtResource("3_fmtqh")
+texture_pressed = ExtResource("4_kl688")
+texture_hover = ExtResource("5_itljs")
+
+[connection signal="pressed" from="next_to_fase2" to="." method="_on_next_to_fase_2_pressed"]

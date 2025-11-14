@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://1l2xk0gph1ft"]
+
+[ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="1_rrsbs"]
+[ext_resource type="Script" uid="uid://d2w7jal7q6u3v" path="res://Mision_3/Minijuego_Mision3/scripts/contexto.gd" id="1_xpir3"]
+[ext_resource type="Texture2D" uid="uid://d147qqe8k3kx4" path="res://Mision_3/Minijuego_Mision3/assests/Pantalla Minijuego3/2.png" id="2_xpir3"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_1.png" id="3_7o20b"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_3.png" id="4_1q0fa"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_2.png" id="5_p02oq"]
+[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_1.png" id="6_m3vsn"]
+[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_2.png" id="7_g05ah"]
+
+[node name="contexto" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xpir3")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 359.0
+texture = ExtResource("1_rrsbs")
+expand_mode = 1
+
+[node name="text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 73.0
+offset_right = 480.0
+offset_bottom = 271.0
+texture = ExtResource("2_xpir3")
+expand_mode = 1
+
+[node name="next_to_fase1Inst" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 285.0
+offset_right = 362.0
+offset_bottom = 318.0
+texture_normal = ExtResource("3_7o20b")
+texture_pressed = ExtResource("4_1q0fa")
+texture_hover = ExtResource("5_p02oq")
+
+[node name="Skip" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 19.0
+offset_right = 626.0
+offset_bottom = 35.0
+texture_normal = ExtResource("6_m3vsn")
+texture_pressed = ExtResource("7_g05ah")
+
+[connection signal="pressed" from="next_to_fase1Inst" to="." method="_on_next_to_fase_1_inst_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
