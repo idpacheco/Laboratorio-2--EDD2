@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="Lab2-Datos2"
-run/main_scene="uid://cq7u726wmg7um"
+run/main_scene="uid://bughfyso16oex"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://mainMenu/Scripts/global.gd"
+AudioManager="*res://mainMenu/Assets/Audio/AudioManager.tscn"
+Settings="*res://mainMenu/Scripts/Settings.gd"
+SceneTransitions="*res://mainMenu/Scripts/scene_transitions.gd"
 
 [display]
 
@@ -28,3 +35,7 @@ window/stretch/scale_mode="integer"
 [dotnet]
 
 project/assembly_name="Lab2-Datos2"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

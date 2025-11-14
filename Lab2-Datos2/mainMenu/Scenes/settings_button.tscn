@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7v1tmuysgrtl"]
+
+[ext_resource type="Texture2D" uid="uid://c3pliighnpbk6" path="res://mainMenu/Assets/buttons/back_1.png" id="1_cbwwu"]
+[ext_resource type="Texture2D" uid="uid://dw5xvrocxm75n" path="res://mainMenu/Assets/buttons/back_2.png" id="2_6j4cb"]
+[ext_resource type="Script" uid="uid://bc2jbpg5i43lx" path="res://mainMenu/Scripts/settings_button.gd" id="3_6j4cb"]
+
+[node name="SettingsButton" type="TextureButton"]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("1_cbwwu")
+texture_pressed = ExtResource("2_6j4cb")
+stretch_mode = 0
+script = ExtResource("3_6j4cb")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
