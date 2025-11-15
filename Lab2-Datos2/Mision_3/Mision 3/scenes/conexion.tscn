@@ -8,7 +8,6 @@ texture_filter = 1
 points = PackedVector2Array(477, 481)
 closed = true
 width = 5.0
-default_color = Color(0.176471, 0.772549, 0.176471, 1)
 texture = ExtResource("1_p7d0i")
 texture_mode = 1
 script = ExtResource("1_v7hyp")
