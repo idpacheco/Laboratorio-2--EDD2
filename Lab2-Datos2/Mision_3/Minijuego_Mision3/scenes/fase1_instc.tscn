@@ -1,15 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://c32mvwtku57"]
+[gd_scene load_steps=11 format=3 uid="uid://y2kf7apj53sj"]
 
 [ext_resource type="Script" uid="uid://cit3bjuaw0oui" path="res://Mision_3/Minijuego_Mision3/scripts/fase_1_instc.gd" id="1_hpntq"]
 [ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="1_ka5xi"]
 [ext_resource type="Texture2D" uid="uid://7k4pdsiobici" path="res://Mision_3/Minijuego_Mision3/assests/Pantalla Minijuego3/3.png" id="2_ka5xi"]
-[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_1.png" id="3_dvjaj"]
-[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_3.png" id="4_76p6n"]
-[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_2.png" id="5_08d8n"]
-[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_1.png" id="6_pa57s"]
-[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_2.png" id="7_yk36c"]
-[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/back_1.png" id="9_76p6n"]
-[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/back_2.png" id="10_08d8n"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_1.png" id="3_dvjaj"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_3.png" id="4_76p6n"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_2.png" id="5_08d8n"]
+[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_4/Level 1/Assets+/Buttons/close_1.png" id="6_pa57s"]
+[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_4/Level 1/Assets+/Buttons/close_2.png" id="7_yk36c"]
+[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Mision_4/Level 1/Assets+/Buttons/back_1.png" id="9_76p6n"]
+[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Mision_4/Level 1/Assets+/Buttons/back_2.png" id="10_08d8n"]
 
 [node name="fase1_instc" type="Control"]
 layout_mode = 3

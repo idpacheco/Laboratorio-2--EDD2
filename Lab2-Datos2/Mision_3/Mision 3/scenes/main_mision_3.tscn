@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cq7u726wmg7um"]
 
-[ext_resource type="Script" uid="uid://ubynpohjhcr2" path="res://Mision_3/Mision 3/scripts/mapa.gd" id="1_4it05"]
+[ext_resource type="Script" path="res://Mision_3/Mision 3/scripts/mapa.gd" id="1_4it05"]
 [ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_6mpqr"]
 [ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="2_pnq37"]
 [ext_resource type="Texture2D" uid="uid://bhhg2la2j7jm4" path="res://Mision_3/Mision 3/assets/box_3.png" id="4_p21qj"]

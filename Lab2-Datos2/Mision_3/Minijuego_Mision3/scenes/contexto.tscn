@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://1l2xk0gph1ft"]
+[gd_scene load_steps=9 format=3 uid="uid://dv33nwxbe22ad"]
 
 [ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="1_rrsbs"]
 [ext_resource type="Script" uid="uid://d2w7jal7q6u3v" path="res://Mision_3/Minijuego_Mision3/scripts/contexto.gd" id="1_xpir3"]
 [ext_resource type="Texture2D" uid="uid://d147qqe8k3kx4" path="res://Mision_3/Minijuego_Mision3/assests/Pantalla Minijuego3/2.png" id="2_xpir3"]
-[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_1.png" id="3_7o20b"]
-[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_3.png" id="4_1q0fa"]
-[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_2.png" id="5_p02oq"]
-[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_1.png" id="6_m3vsn"]
-[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/close_2.png" id="7_g05ah"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_1.png" id="3_7o20b"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_3.png" id="4_1q0fa"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_2.png" id="5_p02oq"]
+[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_4/Level 1/Assets+/Buttons/close_1.png" id="6_m3vsn"]
+[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_4/Level 1/Assets+/Buttons/close_2.png" id="7_g05ah"]
 
 [node name="contexto" type="Control"]
 layout_mode = 3

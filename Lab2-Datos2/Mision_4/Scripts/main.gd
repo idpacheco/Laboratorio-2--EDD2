@@ -93,11 +93,11 @@ func create_edge(from_name: String, to_name: String, cap: int):
 # 👆 El jugador hace clic en nodos
 func _on_node_clicked(node_name: String):
 	if selected_path.is_empty() and not nodes[node_name].is_source:
-		print("Debes empezar desde la fuente (S).")
+		log_mensj("Debes empezar desde la fuente (S).")
 		return
 
 	selected_path.append(node_name)
-	print("Camino actual:", selected_path)
+	log_info("Camino actual: " + str(selected_path))
 
 	if nodes[node_name].is_sink:
 		apply_flow_to_path()
@@ -105,7 +105,7 @@ func _on_node_clicked(node_name: String):
 # 🚰 Aplicar flujo al camino seleccionado
 func apply_flow_to_path():
 	if selected_path.size() < 2:
-		print("Camino incompleto.")
+		log_mensj("Camino incompleto.")
 		selected_path.clear()
 		return
 
@@ -115,12 +115,12 @@ func apply_flow_to_path():
 		var to = selected_path[i + 1]
 		var edge = get_edge_between(from, to)
 		if edge == null:
-			print("No hay arista entre", from, "y", to)
+			log_mensj("❌ No hay arista entre %s y %s" % [from, to])
 			errores_jugador += 1
 			selected_path.clear()
 			return
 		if edge.is_full():
-			print("Camino bloqueado en", from, "->", to)
+			log_mensj("Camino bloqueado %->" % [from, to])
 			errores_jugador += 1
 			selected_path.clear()
 			return
@@ -135,8 +135,8 @@ func apply_flow_to_path():
 		e.update_edge()
 
 	total_flow += bottleneck
-	print("💧 Flujo enviado:", bottleneck, "por", selected_path)
-	print("Flujo total:", total_flow)
+	log_info("💧 Flujo enviado: %d por %s" % [bottleneck, str(selected_path)])
+	log_info("Flujo total: %d" % total_flow)
 
 	selected_path.clear()
 	check_end_game()
@@ -163,11 +163,13 @@ func check_end_game():
 
 		print("🏁 Juego terminado.")
 		if errores_jugador > 2:
-			print("⚠️ Demasiados errores. NEMESIS casi corrompe la red...")
+			log_mensj("⚠️ Demasiados errores. NEMESIS casi corrompe la red...")
 		else:
-			print("✅ Flujo seguro establecido. NEMESIS ha sido aislado.")
+			log_mensj("✅ Flujo seguro establecido. NEMESIS ha sido aislado.")
+		# ¡DETENER timer aquí!
+		game_timer.stop()
 	else:
-		print("➡️ Aún quedan caminos posibles. Sigue intentando.")
+		log_mensj("➡️ Aún quedan caminos posibles. Sigue intentando.")
 
 # 🔄 Reiniciar
 func run_player_flow():
@@ -309,4 +311,16 @@ func _on_game_timer_timeout() -> void:
 	mensaje_final.visible = true
 	button_auto.visible = false
 	get_tree().paused = true
-	print("💥 El tiempo se acabó.")
+	log_mensj("💥 El tiempo se acabó.")
+
+func log_info(text):
+	var label2= $Panel/RichTextLabel
+	$Panel/RichTextLabel.append_text(text + "\n")
+	label2.clear()               # 🧹 limpia mensajes anteriores
+	label2.append_text(text)     # 📝 escribe el nuevo mensaje
+
+func log_mensj(text):
+	var label= $Panel/RichTextLabel2
+	$Panel/RichTextLabel2.append_text(text + "\n")
+	label.clear()               # 🧹 limpia mensajes anteriores
+	label.append_text(text)     # 📝 escribe el nuevo mensaje

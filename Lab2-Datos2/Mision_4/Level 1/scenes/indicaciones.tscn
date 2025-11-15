@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0fqhbwsqptxj"]
+
+[ext_resource type="Script" uid="uid://b2tha684rnbb4" path="res://Level 1/Scripts/indicaciones.gd" id="1_ibbcy"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="1_nwc6m"]
+[ext_resource type="Texture2D" uid="uid://gkxbq80pvbry" path="res://Level 1/Assets+/pantallas(img+msj)/msj/indicaciones.png" id="3_ibbcy"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Level 1/Assets+/Buttons/Continue_1.png" id="4_ibbcy"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Level 1/Assets+/Buttons/Continue_3.png" id="5_d2sds"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Level 1/Assets+/Buttons/Continue_2.png" id="6_c368s"]
+[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Level 1/Assets+/Buttons/back_1.png" id="7_y6qsl"]
+[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Level 1/Assets+/Buttons/back_2.png" id="8_csd8u"]
+
+[node name="indicaciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ibbcy")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 358.0
+texture = ExtResource("1_nwc6m")
+expand_mode = 1
+
+[node name="indicaciones" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -112.5
+offset_right = 183.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ibbcy")
+expand_mode = 1
+
+[node name="next_to_imag" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 298.0
+offset_right = 369.0
+offset_bottom = 338.0
+texture_normal = ExtResource("4_ibbcy")
+texture_pressed = ExtResource("5_d2sds")
+texture_hover = ExtResource("6_c368s")
+
+[node name="back_to_aviso" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 320.0
+offset_right = 617.0
+offset_bottom = 346.0
+texture_normal = ExtResource("7_y6qsl")
+texture_pressed = ExtResource("8_csd8u")
+stretch_mode = 0
+
+[connection signal="pressed" from="next_to_imag" to="." method="_on_next_to_imag_pressed"]
+[connection signal="pressed" from="back_to_aviso" to="." method="_on_back_to_aviso_pressed"]
