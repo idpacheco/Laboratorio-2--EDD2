@@ -24,19 +24,19 @@ expand_mode = 1
 
 [node name="Text" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 152.0
-offset_top = 90.0
-offset_right = 470.0
-offset_bottom = 284.0
+offset_left = 148.0
+offset_top = 85.0
+offset_right = 475.0
+offset_bottom = 276.0
 texture = ExtResource("3_yq2sj")
 expand_mode = 1
 
 [node name="next_to_??" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 293.0
-offset_top = 295.0
+offset_top = 284.0
 offset_right = 330.0
-offset_bottom = 330.0
+offset_bottom = 319.0
 texture_normal = ExtResource("4_e3c0i")
 texture_pressed = ExtResource("5_lqcul")
 stretch_mode = 0

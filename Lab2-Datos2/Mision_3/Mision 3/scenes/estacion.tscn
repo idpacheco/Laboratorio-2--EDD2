@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://5uh4yt0awh2m"]
 
 [ext_resource type="Script" uid="uid://c8odapllfn3em" path="res://Mision_3/Mision 3/scripts/estacion.gd" id="1_wae0v"]
-[ext_resource type="Texture2D" uid="uid://cjitepsxew042" path="res://Mision_3/Mision 3/assets/Elira_Mision1.png" id="2_xd8f6"]
+[ext_resource type="Texture2D" uid="uid://uf7w34akqfsp" path="res://Mision_3/Mision 3/assets/Vertice_1.png" id="2_lcgq7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xd8f6"]
+radius = 20.0
 
 [node name="Estacion" type="Area2D"]
 script = ExtResource("1_wae0v")
@@ -12,4 +13,4 @@ script = ExtResource("1_wae0v")
 shape = SubResource("CircleShape2D_xd8f6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_xd8f6")
+texture = ExtResource("2_lcgq7")

@@ -11,16 +11,32 @@ var seleccion_desconectar_1: int = -1
 var prim = preload("res://Mision_3/Mision 3/Prim.gd").new()
 const INF = 99999
 
+var VictoriaScene = preload("res://Mision_3/Mision 3/scenes/winner.tscn")
+var DerrotaScene = preload("res://Mision_3/Mision 3/scenes/loser.tscn")
+var popup_actual = null
+
 func _ready():
 	preparar_estaciones_y_conexiones()
 	$"../UI/BotonConectar".pressed.connect(_on_BotonConectar_pressed)
 	$"../UI/BotonDesconectar".pressed.connect(_on_boton_desconectar_pressed)
 	$"../UI/BotonConfirmar".pressed.connect(_on_BotonConfirmar_pressed)
 	#$"../UI/BotonVerOptima".pressed.connect(_on_BotonVerOptima_pressed)
+	
+func mostrar_popup_ganaste():
+	$"../UI".visible = false
+	if popup_actual != null:
+		popup_actual.queue_free()
+	popup_actual = VictoriaScene.instantiate()
+	add_child(popup_actual)
 
+func mostrar_popup_perdiste():
+	$"../UI".visible = false
+	if popup_actual != null:
+		popup_actual.queue_free()
+	popup_actual = DerrotaScene.instantiate()
+	add_child(popup_actual)
+	
 func preparar_estaciones_y_conexiones():
-	var ancho_pantalla = 640
-	var alto_pantalla = 360
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	# ===== 3 GRAFOS FIJOS =====
@@ -182,14 +198,13 @@ func _on_BotonConfirmar_pressed():
 		costo_optimo += conn[2]
 	$"../UI/OptimoLabel".text = "Costo óptimo: %d (Prim)" % costo_optimo
 	_resaltar_mst(mst)
-
+	
+	await get_tree().create_timer(3.0).timeout #Un segundito para salir
 	# Comparación actual: ¿las conexiones del jugador son las mismas que el MST?
 	if _es_ganador(mst):
-		$"../UI/GanasteLabel".visible = true
-		$"../UI/PerdisteLabel".visible = false
+		mostrar_popup_ganaste()
 	else:
-		$"../UI/GanasteLabel".visible = false
-		$"../UI/PerdisteLabel".visible = true
+		mostrar_popup_perdiste()
 
 func _es_ganador(mst: Array) -> bool:
 	var jugador_set = []

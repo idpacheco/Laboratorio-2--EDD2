@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjitepsxew042"
-path="res://.godot/imported/Elira_Mision1.png-51754a61395c70f6f2dd58eeebfbce1c.ctex"
+uid="uid://brotm2cbihuca"
+path="res://.godot/imported/cable4.png-f2c8a173097ad6fdf6f86bcfcbe49c29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_3/Mision 3/assets/Elira_Mision1.png"
-dest_files=["res://.godot/imported/Elira_Mision1.png-51754a61395c70f6f2dd58eeebfbce1c.ctex"]
+source_file="res://Mision_3/Mision 3/assets/cable4.png"
+dest_files=["res://.godot/imported/cable4.png-f2c8a173097ad6fdf6f86bcfcbe49c29.ctex"]
 
 [params]
 
