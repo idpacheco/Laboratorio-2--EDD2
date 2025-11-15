@@ -46,12 +46,13 @@ texture_hover = ExtResource("5_p02oq")
 
 [node name="Skip" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 610.0
-offset_top = 19.0
-offset_right = 626.0
+offset_left = 607.0
+offset_top = 10.0
+offset_right = 634.0
 offset_bottom = 35.0
 texture_normal = ExtResource("6_m3vsn")
 texture_pressed = ExtResource("7_g05ah")
+stretch_mode = 0
 
 [connection signal="pressed" from="next_to_fase1Inst" to="." method="_on_next_to_fase_1_inst_pressed"]
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

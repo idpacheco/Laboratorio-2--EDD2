@@ -6,12 +6,15 @@ var conexiones_jugador: Array = []
 var grafo: Dictionary = {}
 var seleccionando: bool = false
 var seleccion_1: int = -1
+var seleccionando_desconectar: bool = false
+var seleccion_desconectar_1: int = -1
 var prim = preload("res://Mision_3/Mision 3/Prim.gd").new()
 const INF = 99999
 
 func _ready():
 	preparar_estaciones_y_conexiones()
 	$"../UI/BotonConectar".pressed.connect(_on_BotonConectar_pressed)
+	$"../UI/BotonDesconectar".pressed.connect(_on_boton_desconectar_pressed)
 	$"../UI/BotonConfirmar".pressed.connect(_on_BotonConfirmar_pressed)
 	#$"../UI/BotonVerOptima".pressed.connect(_on_BotonVerOptima_pressed)
 
@@ -149,6 +152,72 @@ func _on_estacion_input(viewport, event: InputEvent, shape_idx: int, idx_estacio
 			conectar_estaciones(seleccion_1, idx_estacion)
 			estaciones[seleccion_1].modulate = Color.WHITE
 			seleccion_1 = -1
+	elif seleccionando_desconectar and event is InputEventMouseButton and event.pressed:
+		if seleccion_desconectar_1 == -1:
+			seleccion_desconectar_1 = idx_estacion
+			estaciones[idx_estacion].modulate = Color.RED
+		else:
+			desconectar_estaciones(seleccion_desconectar_1, idx_estacion)
+			estaciones[seleccion_desconectar_1].modulate = Color.WHITE
+			seleccion_desconectar_1 = -1
+
+func desconectar_estaciones(origen_idx: int, destino_idx: int):
+	var esta_origen = estaciones[origen_idx]
+	var esta_destino = estaciones[destino_idx]
+	for conn in conexiones_jugador:
+		if (conn.origen == esta_origen and conn.destino == esta_destino) \
+		or (conn.origen == esta_destino and conn.destino == esta_origen):
+			conn.modulate = Color(0.8,0.8,0.8,0.5)
+			conexiones_jugador.erase(conn)
+			mostrar_costo()
+			return # Solo desconectamos una vez
+
+# Aquí el botón confirmar te muestra si ganaste o perdiste
+func _on_BotonConfirmar_pressed():
+	var costo_player = calcular_costo_jugador()
+	$"../UI/CostoLabel".text = "Tu costo: %d" % costo_player
+	var mst = prim.prim(grafo, "Estacion_0")
+	var costo_optimo = 0.0
+	for conn in mst:
+		costo_optimo += conn[2]
+	$"../UI/OptimoLabel".text = "Costo óptimo: %d (Prim)" % costo_optimo
+	_resaltar_mst(mst)
+
+	# Comparación actual: ¿las conexiones del jugador son las mismas que el MST?
+	if _es_ganador(mst):
+		$"../UI/GanasteLabel".visible = true
+		$"../UI/PerdisteLabel".visible = false
+	else:
+		$"../UI/GanasteLabel".visible = false
+		$"../UI/PerdisteLabel".visible = true
+
+func _es_ganador(mst: Array) -> bool:
+	var jugador_set = []
+	for conn in conexiones_jugador:
+		var idx_origen = estaciones.find(conn.origen)
+		var idx_destino = estaciones.find(conn.destino)
+		var costo = conn.costo
+		jugador_set.append([
+			min(idx_origen, idx_destino),
+			max(idx_origen, idx_destino),
+			costo
+		])
+	var mst_set = []
+	for conn in mst:
+		var idx_origen = int(conn[0].split("_")[1])
+		var idx_destino = int(conn[1].split("_")[1])
+		var costo = conn[2]
+		mst_set.append([
+			min(idx_origen, idx_destino),
+			max(idx_origen, idx_destino),
+			costo
+		])
+	if jugador_set.size() != mst_set.size():
+		return false
+	for item in jugador_set:
+		if not item in mst_set:
+			return false
+	return true
 
 # --- SOLO PERMITE SI ES CONEXION VALIDA DISPONIBLE ---
 func conectar_estaciones(origen_idx: int, destino_idx: int):
@@ -197,15 +266,22 @@ func calcular_costo_jugador() -> float:
 func mostrar_costo():
 	$"../UI/CostoLabel".text = "Tu costo: %d" % calcular_costo_jugador()
 
-func _on_BotonConfirmar_pressed():
-	var costo_player = calcular_costo_jugador()
-	$"../UI/CostoLabel".text = "Tu costo: %d" % costo_player
-	var mst = prim.prim(grafo, "Estacion_0")
-	var costo_optimo = 0.0
-	for conn in mst:
-		costo_optimo += conn[2]
-	$"../UI/OptimoLabel".text = "Costo óptimo: %d (Prim)" % costo_optimo
-	_resaltar_mst(mst)
+#func _on_BotonConfirmar_pressed():
+	#var costo_player = calcular_costo_jugador()
+	#$"../UI/CostoLabel".text = "Tu costo: %d" % costo_player
+	#var mst = prim.prim(grafo, "Estacion_0")
+	#var costo_optimo = 0.0
+	#for conn in mst:
+		#costo_optimo += conn[2]
+	#$"../UI/OptimoLabel".text = "Costo óptimo: %d (Prim)" % costo_optimo
+	#_resaltar_mst(mst)
+
+func _on_boton_desconectar_pressed() -> void:
+	seleccionando = false
+	seleccionando_desconectar = true
+	seleccion_desconectar_1 = -1
+	for esta in estaciones:
+		esta.modulate = Color.WHITE
 
 # Si usas el botón de mostrar óptima, descomenta en _ready, y aquí:
 func _on_BotonVerOptima_pressed():

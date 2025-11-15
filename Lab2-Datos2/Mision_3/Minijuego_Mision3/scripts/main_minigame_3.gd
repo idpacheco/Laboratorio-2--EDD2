@@ -15,8 +15,8 @@ const IMAGE2_KEYS = [
 
 @export var points_to_win := 5000
 @export var points_to_lose := -900
-@export var points_per_success := 200
-@export var points_per_fast_success := 300
+@export var points_per_success := 300
+@export var points_per_fast_success := 350
 @export var points_per_fail := -150
 @export var fast_time := 0.5
 
@@ -114,8 +114,10 @@ func _game_win():
 		qte1_instance.queue_free()
 	if qte2_instance:
 		qte2_instance.queue_free()
-	# Aquí podrías cambiar de escena o reproducir un sonido
-	# SceneTransitions.change_scene_to_file("res://Level 1/scenes/listo.tscn")
+	SceneTransitions.change_scene_to_file("res://Mision_3/Minijuego_Mision3/scenes/win.tscn")
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
+
 
 func _game_lose():
 	game_over = true
@@ -123,8 +125,10 @@ func _game_lose():
 		qte1_instance.queue_free()
 	if qte2_instance:
 		qte2_instance.queue_free()
-	# Aquí podrías mostrar pantalla de derrota, reproducir SFX o cambiar de escena
-	# SceneTransitions.change_scene_to_file("res://ruta/a/derrota.tscn")
+	SceneTransitions.change_scene_to_file("res://Mision_3/Minijuego_Mision3/scenes/lose.tscn")
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
+
 		
 
 func _on_img_button_pressed() -> void:
@@ -135,7 +139,11 @@ func _on_img_button_pressed() -> void:
 	else:
 		get_tree().paused = true
 		pause_panel.visible = true
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
 
 func _on_pause_button_pressed() -> void:
 	print("SIRVE, HAY CLICK LOL")
 	get_tree().paused = !get_tree().paused # Cambia entre pausa y no pausa
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
