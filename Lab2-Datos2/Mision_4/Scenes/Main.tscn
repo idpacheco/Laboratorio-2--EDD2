@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dt0f0bao4ofmf"]
+[gd_scene load_steps=6 format=3 uid="uid://dt0f0bao4ofmf"]
 
 [ext_resource type="Script" uid="uid://bxaj1ek6qppha" path="res://Mision_4/Scripts/main.gd" id="1_r150o"]
 [ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="2_fs4k1"]
 [ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="3_dygla"]
+[ext_resource type="Texture2D" uid="uid://cqy05fm11d87p" path="res://Mision_4/Assets/Textures/lupa_1.png" id="4_u6k8n"]
+[ext_resource type="Texture2D" uid="uid://dqycfkynk7f4y" path="res://Mision_4/Assets/Textures/lupa_2.png" id="5_6ulu1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r150o")
@@ -23,6 +25,7 @@ texture = ExtResource("3_dygla")
 expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 518.0
 offset_top = 7.0
 offset_right = 622.0
@@ -43,29 +46,29 @@ offset_top = 17.0
 offset_right = 49.0
 offset_bottom = 40.0
 
-[node name="CheckButtonAuto" type="Button" parent="."]
-visible = false
-offset_left = 528.0
-offset_top = 308.0
-offset_right = 613.0
-offset_bottom = 339.0
-text = "Auto"
+[node name="CheckButtonAuto" type="TextureButton" parent="."]
+offset_left = 424.0
+offset_top = 314.0
+offset_right = 456.0
+offset_bottom = 346.0
+texture_normal = ExtResource("4_u6k8n")
+texture_pressed = ExtResource("5_6ulu1")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
 
 [node name="TiempoLabel" type="Label" parent="."]
-offset_left = 488.0
-offset_top = 329.0
-offset_right = 581.0
-offset_bottom = 354.0
+offset_left = 473.0
+offset_top = 322.0
+offset_right = 566.0
+offset_bottom = 347.0
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 411.0
-offset_top = 81.0
+offset_top = 63.0
 offset_right = 623.0
-offset_bottom = 249.0
+offset_bottom = 270.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
@@ -74,10 +77,17 @@ offset_bottom = 46.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 89.0
-offset_right = 197.0
-offset_bottom = 165.0
+offset_left = 8.0
+offset_top = 156.0
+offset_right = 201.0
+offset_bottom = 232.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 201.0
+offset_bottom = 164.0
 
 [connection signal="toggled" from="CheckButtonAuto" to="." method="_on_button_auto_toggled"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

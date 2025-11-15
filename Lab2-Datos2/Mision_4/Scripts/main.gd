@@ -120,7 +120,7 @@ func apply_flow_to_path():
 			selected_path.clear()
 			return
 		if edge.is_full():
-			log_mensj("Camino bloqueado %->" % [from, to])
+			log_mensj("Camino bloqueado: %s -> %s" % [from, to])
 			errores_jugador += 1
 			selected_path.clear()
 			return
@@ -135,8 +135,8 @@ func apply_flow_to_path():
 		e.update_edge()
 
 	total_flow += bottleneck
-	log_info("💧 Flujo enviado: %d por %s" % [bottleneck, str(selected_path)])
-	log_info("Flujo total: %d" % total_flow)
+	log_mensj2("Flujo enviado: %d por %s" % [bottleneck, str(selected_path)])
+	#log_info("Flujo total: %d" % total_flow)
 
 	selected_path.clear()
 	check_end_game()
@@ -156,13 +156,13 @@ func check_end_game():
 		var ford_result = ford_fulkerson()
 		var duracion = (Time.get_ticks_msec() - tiempo_inicio) / 1000.0
 
-		mensaje_final.text = "🎯 Flujo jugador: %d | Flujo máximo: %d\n⏱️ Tiempo: %.1f s | ❌ Errores: %d" % [total_flow, ford_result, duracion, errores_jugador]
+		mensaje_final.text = " Flujo jugador: %d | Flujo máximo: %d\n Errores: %d" % [total_flow, ford_result, errores_jugador]
 		mensaje_final.visible = true
 
 		button_auto.visible = true
 
 		print("🏁 Juego terminado.")
-		if errores_jugador > 2:
+		if errores_jugador > 0:
 			log_mensj("⚠️ Demasiados errores. NEMESIS casi corrompe la red...")
 		else:
 			log_mensj("✅ Flujo seguro establecido. NEMESIS ha sido aislado.")
@@ -245,7 +245,8 @@ func dfs(g, u, sink, visited, parent) -> bool:
 
 # Mostrar algoritmo visual
 func show_algorithm_mode():
-	print("🔍 Visualizando Ford-Fulkerson...")
+	$Panel/RichTextLabel3.clear()
+	log_mensj("🔍 Visualizando Ford-Fulkerson...")
 	saved_player_flows.clear()
 	for e in edges:
 		saved_player_flows[e] = e.flow
@@ -258,12 +259,12 @@ func show_algorithm_mode():
 	var path = find_augmenting_path("S", "T")
 
 	while path.size() > 0 and not cancel_algorithm:
-		print("➡️ Camino:", path)
+		log_info("Camino:"+ str (path))
 		apply_auto_flow(path)
 		await get_tree().create_timer(1.0).timeout
 		path = find_augmenting_path("S", "T")
 
-	print("✅ Visualización completada.")
+	log_mensj("✅ Visualización completada.")
 	for e in saved_player_flows.keys():
 		e.flow = saved_player_flows[e]
 		e.update_edge()
@@ -314,13 +315,23 @@ func _on_game_timer_timeout() -> void:
 	log_mensj("💥 El tiempo se acabó.")
 
 func log_info(text):
+	print(text)
 	var label2= $Panel/RichTextLabel
 	$Panel/RichTextLabel.append_text(text + "\n")
 	label2.clear()               # 🧹 limpia mensajes anteriores
 	label2.append_text(text)     # 📝 escribe el nuevo mensaje
 
 func log_mensj(text):
+	print(text)
 	var label= $Panel/RichTextLabel2
 	$Panel/RichTextLabel2.append_text(text + "\n")
+	label.clear()               # 🧹 limpia mensajes anteriores
+	label.append_text(text)     # 📝 escribe el nuevo mensaje
+
+
+func log_mensj2(text):
+	print(text)
+	var label= $Panel/RichTextLabel3
+	$Panel/RichTextLabel3.append_text(text + "\n")
 	label.clear()               # 🧹 limpia mensajes anteriores
 	label.append_text(text)     # 📝 escribe el nuevo mensaje
