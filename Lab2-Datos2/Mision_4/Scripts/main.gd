@@ -241,9 +241,7 @@ func dfs(g, u, sink, visited, parent) -> bool:
 				return true
 	return false
 
-# ---------------------------------
-# 🔍 Mostrar algoritmo visual
-# ---------------------------------
+# Mostrar algoritmo visual
 func show_algorithm_mode():
 	print("🔍 Visualizando Ford-Fulkerson...")
 	saved_player_flows.clear()

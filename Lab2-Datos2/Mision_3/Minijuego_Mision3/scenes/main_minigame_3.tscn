@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkxf5sjjlud55"]
+[gd_scene load_steps=7 format=3 uid="uid://dkxf5sjjlud55"]
 
 [ext_resource type="Script" uid="uid://bvy2se37ql50y" path="res://Mision_3/Minijuego_Mision3/scripts/main_minigame_3.gd" id="1_5ity2"]
 [ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="2_v4v3y"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cy7xka4wj23re" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/pause_2.png" id="4_gyjrq"]
 [ext_resource type="Texture2D" uid="uid://bhkgjacb5msbt" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/lupa_1.png" id="5_0eo0p"]
 [ext_resource type="Texture2D" uid="uid://dijvswi4bxfg0" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/lupa_2.png" id="6_oiok3"]
-[ext_resource type="PackedScene" uid="uid://c7vmsc6ncj53h" path="res://Mision_3/Minijuego_Mision3/scenes/pausa.tscn" id="7_gyjrq"]
 
 [node name="Main_minigame3" type="Control"]
 layout_mode = 3
@@ -24,19 +23,22 @@ offset_bottom = 361.0
 texture = ExtResource("2_v4v3y")
 expand_mode = 1
 
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 9.0
+offset_right = 614.0
+offset_bottom = 30.0
+texture_normal = ExtResource("3_fagts")
+texture_pressed = ExtResource("4_gyjrq")
+stretch_mode = 0
+
 [node name="ImgButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 204.0
-offset_top = -173.0
-offset_right = 241.0
-offset_bottom = -138.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 568.0
+offset_top = 9.0
+offset_right = 588.0
+offset_bottom = 30.0
 texture_normal = ExtResource("5_0eo0p")
 texture_pressed = ExtResource("6_oiok3")
 ignore_texture_size = true
@@ -51,28 +53,4 @@ offset_right = 59.0
 offset_bottom = 37.0
 text = "Score: "
 
-[node name="PauseButton" type="TextureButton" parent="."]
-process_mode = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 249.0
-offset_top = -173.0
-offset_right = 286.0
-offset_bottom = -138.0
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("3_fagts")
-texture_pressed = ExtResource("4_gyjrq")
-stretch_mode = 0
-
 [node name="PauseLayer" type="CanvasLayer" parent="."]
-
-[node name="Pausa" parent="PauseLayer" instance=ExtResource("7_gyjrq")]
-visible = false
-
-[connection signal="pressed" from="ImgButton" to="." method="_on_img_button_pressed"]
-[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

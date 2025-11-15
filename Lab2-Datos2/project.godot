@@ -11,10 +11,17 @@ config_version=5
 [application]
 
 config/name="Lab2-Datos2"
-run/main_scene="uid://c7br6s33tl2f4"
+run/main_scene="uid://bughfyso16oex"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<Updatedupstreamrun/main_scene="uid://bughfyso16oex"
+
+[autoload]
+
+Global="*res://mainMenu/Scripts/global.gd"
+AudioManager="*res://mainMenu/Assets/Audio/AudioManager.tscn"
+Settings="*res://mainMenu/Scripts/Settings.gd"
+SceneTransitions="*res://mainMenu/Scripts/scene_transitions.gd"
 
 [display]
 
