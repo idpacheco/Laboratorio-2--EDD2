@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb1pc0dstw2he"]
+
+[ext_resource type="PackedScene" uid="uid://b2pfydb5rltre" path="res://Mision_5/Etapa_4/MiniGame/ship.tscn" id="1_5754e"]
+[ext_resource type="Script" uid="uid://ddbgx63xvxj2k" path="res://Mision_5/Etapa_4/MiniGame/world.gd" id="1_h8hwu"]
+[ext_resource type="LabelSettings" uid="uid://bwu2umq31weaq" path="res://Mision_5/Etapa_4/MiniGame/label_settings.tres" id="2_20oth"]
+[ext_resource type="PackedScene" uid="uid://dfueip1637gcn" path="res://Mision_5/Etapa_4/MiniGame/enemy_spawner.tscn" id="2_oncgw"]
+[ext_resource type="PackedScene" uid="uid://fipx7gm40uab" path="res://Mision_5/Etapa_4/MiniGame/star_particles.tscn" id="5_55au7"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_h8hwu")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 184.0
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 2
+offset_left = 64.0
+offset_right = 256.0
+offset_bottom = 12.0
+text = "score = 0"
+label_settings = ExtResource("2_20oth")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ship" parent="." instance=ExtResource("1_5754e")]
+position = Vector2(24, 96)
+scale = Vector2(2, 2)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_oncgw")]
+position = Vector2(625, 0)
+scale = Vector2(2, 2)
+
+[node name="StarParticles" parent="." instance=ExtResource("5_55au7")]
+position = Vector2(616, 186)
+
+[connection signal="ship_destroyed" from="Ship" to="." method="_on_ship_ship_destroyed"]

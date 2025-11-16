@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://rxpa4fygamku"]
+
+[ext_resource type="Texture2D" uid="uid://v3ur63e4khlh" path="res://Mision_5/Etapa_4/MiniGame/enemy.png" id="1_f3rxd"]
+[ext_resource type="Script" path="res://Mision_5/Etapa_4/MiniGame/enemy.gd" id="1_mhlqa"]
+[ext_resource type="PackedScene" uid="uid://cts8bh5rsxcux" path="res://Mision_5/Etapa_4/MiniGame/effect_creator.tscn" id="3_ajbnv"]
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_mhlqa")
+speed = 60
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_f3rxd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(-5, -2, 1, -7, 3, -7, 5, -5, 5, 5, 3, 7, 1, 7, -5, 2)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, -5.96046e-08)
+scale = Vector2(0.5, 0.7)
+
+[node name="EffectCreator" parent="." instance=ExtResource("3_ajbnv")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

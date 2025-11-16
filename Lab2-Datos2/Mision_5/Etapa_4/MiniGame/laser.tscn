@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://rpv3gacxw388"]
+
+[ext_resource type="Texture2D" uid="uid://y6t4844p0kjb" path="res://Mision_5/Etapa_4/MiniGame/laser.png" id="1_1vmed"]
+[ext_resource type="PackedScene" uid="uid://cts8bh5rsxcux" path="res://Mision_5/Etapa_4/MiniGame/effect_creator.tscn" id="2_8n5pm"]
+[ext_resource type="PackedScene" uid="uid://dv3f5c8x0lgth" path="res://Mision_5/Etapa_4/MiniGame/hit_effect.tscn" id="3_2tsvr"]
+[ext_resource type="AudioStream" uid="uid://bq0o7v8wsp6gn" path="res://Mision_5/Etapa_4/MiniGame/laser_sound.wav" id="4_x6g0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8aqme"]
+size = Vector2(7, 6)
+
+[node name="Laser" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_velocity = Vector2(200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1vmed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_8aqme")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.78814e-07, -4.17233e-07)
+scale = Vector2(0.3, 0.3)
+
+[node name="EffectCreator" parent="." instance=ExtResource("2_8n5pm")]
+EFFECT_SCENE = ExtResource("3_2tsvr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x6g0o")
+autoplay = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="queue_free"]

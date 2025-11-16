@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bwu2umq31weaq"]
+
+[ext_resource type="FontFile" uid="uid://b1fdgmfyw6glt" path="res://Mision_5/Etapa_4/MiniGame/pixel_rpg.ttf" id="1_mf158"]
+
+[resource]
+font = ExtResource("1_mf158")
+font_size = 19
