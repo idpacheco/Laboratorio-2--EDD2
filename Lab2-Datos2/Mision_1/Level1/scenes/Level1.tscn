@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddf3h7p6d0gk1"]
+
+[ext_resource type="Script" uid="uid://cqmsbu57rddg7" path="res://Level1/scripts/level_1.gd" id="1_yw5bb"]
+[ext_resource type="Script" uid="uid://c1m2l6p7ldxyq" path="res://Level1/scripts/line_layer.gd" id="2_ceugp"]
+[ext_resource type="Texture2D" uid="uid://bu2arwn5cb35t" path="res://Level1/Assets/background.png" id="2_gptue"]
+[ext_resource type="Texture2D" uid="uid://d3h7ak2koequy" path="res://Level1/Assets/box.png" id="3_l5bpb"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_yw5bb")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_gptue")
+expand_mode = 1
+
+[node name="box" type="TextureRect" parent="."]
+offset_left = 128.0
+offset_top = 33.0
+offset_right = 527.0
+offset_bottom = 353.0
+texture = ExtResource("3_l5bpb")
+expand_mode = 1
+
+[node name="Graph" type="Node2D" parent="."]
+z_index = 1
+
+[node name="LineLayer" type="Node2D" parent="Graph"]
+z_index = 1
+script = ExtResource("2_ceugp")
+
+[node name="NodeLayer" type="Node2D" parent="Graph"]
+z_index = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ButtonStart" type="Button" parent="UI"]
+offset_left = 43.0
+offset_top = 264.0
+offset_right = 91.0
+offset_bottom = 295.0
+text = "start"
+
+[node name="OptionAlgorithm" type="OptionButton" parent="UI"]
+offset_left = 41.0
+offset_top = 300.0
+offset_right = 103.0
+offset_bottom = 331.0
+item_count = 2
+popup/item_0/text = "BFS"
+popup/item_0/id = 0
+popup/item_1/text = "DFS"
+popup/item_1/id = 1
+
+[node name="LabelStructure" type="Label" parent="UI"]
+offset_left = 22.0
+offset_top = 539.0
+offset_right = 191.0
+offset_bottom = 582.0
+
+[node name="LabelStatus" type="Label" parent="UI"]
+offset_left = 167.0
+offset_top = 8.0
+offset_right = 207.0
+offset_bottom = 31.0
