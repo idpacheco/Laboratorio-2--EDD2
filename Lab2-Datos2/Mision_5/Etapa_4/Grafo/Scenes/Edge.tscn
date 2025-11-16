@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://clfw3ym0uy1l8"]
 
 [ext_resource type="Texture2D" uid="uid://brotm2cbihuca" path="res://Mision_3/Mision 3/assets/cable4.png" id="1_cvt48"]
-[ext_resource type="Script" uid="uid://y6qu2sc5ga8n" path="res://Mision_4/Scripts/edge.gd" id="2_3j6d2"]
+[ext_resource type="Script" uid="uid://bg5pm1r3gtv3j" path="res://Mision_5/Etapa_4/Grafo/Scripts/edge.gd" id="2_cvt48"]
 
 [node name="Edge" type="Line2D"]
 texture = ExtResource("1_cvt48")
-script = ExtResource("2_3j6d2")
+script = ExtResource("2_cvt48")
 
 [node name="Label" type="Label" parent="."]
 offset_top = 17.0

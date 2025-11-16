@@ -96,13 +96,18 @@ func _on_node_clicked(node_name: String):
 	if selected_path.is_empty() and not nodes[node_name].is_source:
 		log_mensj("Debes empezar desde la fuente (S).")
 		return
-
+		# Quita selección de todos
+	for n in nodes.values():
+		n.set_selected(false)
+	# Pone azul el nodo clickeado
+	nodes[node_name].set_selected(true)
+	
 	selected_path.append(node_name)
 	log_info("Camino actual: " + str(selected_path))
 
 	if nodes[node_name].is_sink:
 		apply_flow_to_path()
-
+	
 # 🚰 Aplicar flujo al camino seleccionado
 func apply_flow_to_path():
 	if selected_path.size() < 2:
@@ -141,6 +146,9 @@ func apply_flow_to_path():
 
 	selected_path.clear()
 	check_end_game()
+	for n in nodes.values():
+		n.set_selected(false)
+
 
 # 🔍 Buscar arista
 func get_edge_between(from_name: String, to_name: String):
