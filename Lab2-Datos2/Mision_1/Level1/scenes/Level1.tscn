@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddf3h7p6d0gk1"]
 
-[ext_resource type="Script" uid="uid://cqmsbu57rddg7" path="res://Level1/scripts/level_1.gd" id="1_yw5bb"]
-[ext_resource type="Script" uid="uid://c1m2l6p7ldxyq" path="res://Level1/scripts/line_layer.gd" id="2_ceugp"]
-[ext_resource type="Texture2D" uid="uid://bu2arwn5cb35t" path="res://Level1/Assets/background.png" id="2_gptue"]
-[ext_resource type="Texture2D" uid="uid://d3h7ak2koequy" path="res://Level1/Assets/box.png" id="3_l5bpb"]
+[ext_resource type="Script" uid="uid://cqmsbu57rddg7" path="res://Mision_1/Level1/scripts/level_1.gd" id="1_yw5bb"]
+[ext_resource type="Script" uid="uid://c1m2l6p7ldxyq" path="res://Mision_1/Level1/scripts/line_layer.gd" id="2_ceugp"]
+[ext_resource type="Texture2D" uid="uid://bu2arwn5cb35t" path="res://Mision_1/Level1/Assets/background.png" id="2_gptue"]
+[ext_resource type="Texture2D" uid="uid://d3h7ak2koequy" path="res://Mision_1/Level1/Assets/box.png" id="3_l5bpb"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_yw5bb")

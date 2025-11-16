@@ -22,6 +22,7 @@ Global="*res://mainMenu/Scripts/global.gd"
 AudioManager="*res://mainMenu/Assets/Audio/AudioManager.tscn"
 Settings="*res://mainMenu/Scripts/Settings.gd"
 SceneTransitions="*res://mainMenu/Scripts/scene_transitions.gd"
+GameState="*res://Mision_1/Level1/scripts/GameState.gd"
 
 [display]
 
