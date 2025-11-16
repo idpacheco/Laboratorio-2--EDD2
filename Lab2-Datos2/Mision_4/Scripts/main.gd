@@ -1,7 +1,7 @@
 extends Node2D
 
-var NodeScene: PackedScene = load("res://Mision_5/Etapa_4/Grafo/Scenes/Node.tscn")
-var EdgeScene: PackedScene = load("res://Mision_5/Etapa_4/Grafo/Scenes/Edge.tscn")
+var NodeScene: PackedScene = load("res://Mision_4/Scenes/Node.tscn")
+var EdgeScene: PackedScene = load("res://Mision_4/Scenes/Edge.tscn")
 
 @onready var nodes_container = $NodesContainer
 @onready var edges_container = $EdgesContainer
@@ -349,7 +349,7 @@ func log_mensj2(text):
 
 func _on_continue_pressed() -> void:
 	if jugador_gano:
-		get_tree().change_scene_to_file("res://Mision_5/Etapa_4/Grafo/Scenes/Ganaste.tscn")
+		get_tree().change_scene_to_file("res://Mision_4/Scenes/Ganaste.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Mision_5/Etapa_4/Grafo/Scenes/Perdiste.tscn")
+		get_tree().change_scene_to_file("res://Mision_4/Scenes/Perdiste.tscn")
 	pass # Replace with function body.
