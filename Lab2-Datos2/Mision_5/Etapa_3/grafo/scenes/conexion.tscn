@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://i353iyl77wko"]
+
+[ext_resource type="Texture2D" uid="uid://brotm2cbihuca" path="res://Mision_3/Mision 3/assets/cable4.png" id="1_p7d0i"]
+[ext_resource type="Script" uid="uid://bgg4pgjv70llg" path="res://Mision_3/Mision 3/scripts/conexion.gd" id="1_v7hyp"]
+
+[node name="Conexion" type="Line2D"]
+texture_filter = 1
+points = PackedVector2Array(477, 481)
+closed = true
+width = 5.0
+texture = ExtResource("1_p7d0i")
+texture_mode = 1
+script = ExtResource("1_v7hyp")
+
+[node name="PesoLabel" type="Label" parent="."]
+offset_left = 305.0
+offset_top = 48.0
+offset_right = 330.0
+offset_bottom = 71.0

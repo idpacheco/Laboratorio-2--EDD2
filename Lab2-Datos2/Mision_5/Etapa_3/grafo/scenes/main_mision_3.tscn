@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq7u726wmg7um"]
+
+[ext_resource type="Script" uid="uid://ubynpohjhcr2" path="res://Mision_3/Mision 3/scripts/mapa.gd" id="1_4it05"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_6mpqr"]
+[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="2_pnq37"]
+[ext_resource type="Texture2D" uid="uid://bhhg2la2j7jm4" path="res://Mision_3/Mision 3/assets/box_3.png" id="4_p21qj"]
+[ext_resource type="Texture2D" uid="uid://b4fwpj1x8n0oh" path="res://Mision_3/Mision 3/assets/Buttons/connect_1.png" id="5_dfaqw"]
+[ext_resource type="Texture2D" uid="uid://bdy4ed3bgjvc3" path="res://Mision_3/Mision 3/assets/Buttons/disconnect_1.png" id="5_i2uxo"]
+[ext_resource type="Texture2D" uid="uid://dlf4b3pjisv6o" path="res://Mision_3/Mision 3/assets/Buttons/connect_2.png" id="6_674vu"]
+[ext_resource type="Texture2D" uid="uid://ckx46p811hodc" path="res://Mision_3/Mision 3/assets/Buttons/disconnect_2.png" id="6_k2jah"]
+[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_3/Mision 3/assets/Buttons/win_1.png" id="9_saonw"]
+[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_3/Mision 3/assets/Buttons/win_2.png" id="10_ixyxp"]
+
+[sub_resource type="GDScript" id="GDScript_g61wp"]
+
+[node name="Main_Mision3" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 361.0
+texture = ExtResource("1_6mpqr")
+expand_mode = 1
+
+[node name="Box_" type="TextureRect" parent="."]
+offset_left = 199.0
+offset_top = 36.0
+offset_right = 568.0
+offset_bottom = 318.0
+texture = ExtResource("2_pnq37")
+expand_mode = 1
+
+[node name="Mapa" type="Node2D" parent="."]
+script = ExtResource("1_4it05")
+
+[node name="ConexionContainer" type="Node2D" parent="Mapa"]
+
+[node name="EstacionContainer" type="Node2D" parent="Mapa"]
+script = SubResource("GDScript_g61wp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+offset_left = 14.0
+offset_top = 45.0
+offset_right = 169.0
+offset_bottom = 143.0
+texture = ExtResource("4_p21qj")
+expand_mode = 1
+
+[node name="BotonConectar" type="TextureButton" parent="UI"]
+offset_left = 75.0
+offset_top = 167.0
+offset_right = 115.0
+offset_bottom = 207.0
+texture_normal = ExtResource("5_dfaqw")
+texture_pressed = ExtResource("6_674vu")
+stretch_mode = 0
+
+[node name="BotonDesconectar" type="TextureButton" parent="UI"]
+offset_left = 75.0
+offset_top = 216.0
+offset_right = 115.0
+offset_bottom = 256.0
+texture_normal = ExtResource("5_i2uxo")
+texture_pressed = ExtResource("6_k2jah")
+stretch_mode = 0
+
+[node name="BotonVerOptima" type="Button" parent="UI"]
+visible = false
+offset_left = 1051.4
+offset_top = 607.626
+offset_right = 1089.4
+offset_bottom = 638.626
+text = "VER"
+
+[node name="BotonConfirmar" type="TextureButton" parent="UI"]
+offset_left = 75.0
+offset_top = 263.0
+offset_right = 115.0
+offset_bottom = 303.0
+texture_normal = ExtResource("9_saonw")
+texture_pressed = ExtResource("10_ixyxp")
+stretch_mode = 0
+
+[node name="CostoLabel" type="Label" parent="UI"]
+offset_left = 38.0
+offset_top = 51.0
+offset_right = 145.0
+offset_bottom = 100.0
+text = "Tu costo: 123477"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OptimoLabel" type="Label" parent="UI"]
+offset_left = 35.0
+offset_top = 89.0
+offset_right = 157.0
+offset_bottom = 138.0
+text = "OPTIMO PRIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="UI/BotonConectar" to="Mapa" method="_on_boton_conectar_pressed"]
+[connection signal="pressed" from="UI/BotonDesconectar" to="Mapa" method="_on_boton_desconectar_pressed"]
+[connection signal="pressed" from="UI/BotonVerOptima" to="Mapa" method="_on_boton_ver_optima_pressed"]
+[connection signal="pressed" from="UI/BotonConfirmar" to="Mapa" method="_on_boton_confirmar_pressed"]

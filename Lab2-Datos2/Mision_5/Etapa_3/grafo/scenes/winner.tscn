@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cpv1it5bkftm4"]
+
+[ext_resource type="Script" uid="uid://dljv0jqxqknpu" path="res://Mision_3/Mision 3/scripts/winner.gd" id="1_lqcul"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="2_2w7no"]
+[ext_resource type="Texture2D" uid="uid://w87qy6m3x6fw" path="res://Mision_3/Mision 3/assets/Pantallas Grafo3/8.png" id="3_yq2sj"]
+[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_3/Mision 3/assets/Buttons/win_1.png" id="4_e3c0i"]
+[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_3/Mision 3/assets/Buttons/win_2.png" id="5_lqcul"]
+
+[node name="winner" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqcul")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_2w7no")
+expand_mode = 1
+
+[node name="Text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 85.0
+offset_right = 475.0
+offset_bottom = 276.0
+texture = ExtResource("3_yq2sj")
+expand_mode = 1
+
+[node name="next_to_??" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 284.0
+offset_right = 330.0
+offset_bottom = 319.0
+texture_normal = ExtResource("4_e3c0i")
+texture_pressed = ExtResource("5_lqcul")
+stretch_mode = 0
+
+[connection signal="pressed" from="next_to_??" to="." method="_on_next_to__pressed"]
