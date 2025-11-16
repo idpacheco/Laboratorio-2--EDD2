@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://dnafsfnoi01hx"]
 
-[ext_resource type="Script" uid="uid://dvpw3ujikdale" path="res://Level 1/Scripts/level_1_main.gd" id="1_uecuo"]
-[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="2_6iebh"]
-[ext_resource type="Texture2D" uid="uid://bhkgjacb5msbt" path="res://Level 1/Assets+/Buttons/lupa_1.png" id="3_1b4jm"]
-[ext_resource type="Texture2D" uid="uid://dijvswi4bxfg0" path="res://Level 1/Assets+/Buttons/lupa_2.png" id="4_o8prn"]
-[ext_resource type="Texture2D" uid="uid://cj6gx4sijmjob" path="res://Level 1/Assets+/Buttons/pause_1.png" id="5_cryc4"]
-[ext_resource type="Texture2D" uid="uid://cy7xka4wj23re" path="res://Level 1/Assets+/Buttons/pause_2.png" id="6_fjtmi"]
-[ext_resource type="PackedScene" uid="uid://bn3c5kk2qgjj5" path="res://Level 1/scenes/guia_pausa.tscn" id="7_fjtmi"]
+[ext_resource type="Script" uid="uid://dvpw3ujikdale" path="res://Mision_4/Level 1/Scripts/level_1_main.gd" id="1_uecuo"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Mision_4/Level 1/Assets+/background.png" id="2_6iebh"]
+[ext_resource type="Texture2D" uid="uid://bhkgjacb5msbt" path="res://Mision_4/Level 1/Assets+/Buttons/lupa_1.png" id="3_1b4jm"]
+[ext_resource type="Texture2D" uid="uid://dijvswi4bxfg0" path="res://Mision_4/Level 1/Assets+/Buttons/lupa_2.png" id="4_o8prn"]
+[ext_resource type="Texture2D" uid="uid://cj6gx4sijmjob" path="res://Mision_4/Level 1/Assets+/Buttons/pause_1.png" id="5_cryc4"]
+[ext_resource type="Texture2D" uid="uid://cy7xka4wj23re" path="res://Mision_4/Level 1/Assets+/Buttons/pause_2.png" id="6_fjtmi"]
+[ext_resource type="PackedScene" uid="uid://bn3c5kk2qgjj5" path="res://Mision_4/Level 1/scenes/guia_pausa.tscn" id="7_fjtmi"]
 
 [node name="Level1_Main" type="Control"]
 layout_mode = 3

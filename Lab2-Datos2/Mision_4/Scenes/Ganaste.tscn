@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwpmdxuhuto0i"]
+
+[ext_resource type="Script" uid="uid://c2aa3a50dfwwd" path="res://Mision_4/Scripts/ganaste.gd" id="1_xiepp"]
+[ext_resource type="Texture2D" uid="uid://cypejt27gr6m8" path="res://Mision_4/Assets/background.png" id="2_nrev2"]
+[ext_resource type="Texture2D" uid="uid://b0vhg81gcees" path="res://Mision_4/Assets/25.jpg" id="3_0b3nj"]
+[ext_resource type="Texture2D" uid="uid://bw6aw6dtvebsk" path="res://Mision_4/Assets/Textures/Continue1.tres" id="4_rgean"]
+[ext_resource type="Texture2D" uid="uid://kggj6gwbfed2" path="res://Mision_4/Assets/Textures/Continue2.tres" id="5_u5sxf"]
+[ext_resource type="Texture2D" uid="uid://kpowpe1x47af" path="res://Mision_4/Assets/Textures/Continue3.tres" id="6_vj340"]
+
+[node name="Ganaste" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xiepp")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_nrev2")
+expand_mode = 1
+
+[node name="Text" type="TextureRect" parent="."]
+offset_left = 89.0
+offset_top = 76.0
+offset_right = 538.0
+offset_bottom = 266.0
+texture = ExtResource("3_0b3nj")
+expand_mode = 1
+
+[node name="Continue" type="TextureButton" parent="."]
+offset_left = 221.0
+offset_top = 287.0
+offset_right = 323.0
+offset_bottom = 320.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_rgean")
+texture_pressed = ExtResource("5_u5sxf")
+texture_hover = ExtResource("6_vj340")
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

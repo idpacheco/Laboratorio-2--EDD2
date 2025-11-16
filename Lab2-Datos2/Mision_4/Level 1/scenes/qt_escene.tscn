@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bowchk12lf77s"]
 
-[ext_resource type="Script" uid="uid://ti0d7u31avr0" path="res://Level 1/Scripts/qte_scene.gd" id="1_pmnlq"]
+[ext_resource type="Script" uid="uid://ti0d7u31avr0" path="res://Mision_4/Level 1/Scripts/qte_scene.gd" id="1_pmnlq"]
 
 [node name="QTEscene" type="Control"]
 layout_mode = 3

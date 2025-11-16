@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4tvc633gx3e4"]
 
-[ext_resource type="Script" uid="uid://we2p46jcl73r" path="res://Level 1/Scripts/qte.gd" id="1_yvytf"]
-[ext_resource type="Shader" uid="uid://b81a6tgom3a7q" path="res://Level 1/Assets+/qte.gdshader" id="2_p5qm7"]
+[ext_resource type="Script" uid="uid://we2p46jcl73r" path="res://Mision_4/Level 1/Scripts/qte.gd" id="1_yvytf"]
+[ext_resource type="Shader" uid="uid://b81a6tgom3a7q" path="res://Mision_4/Level 1/Assets+/qte.gdshader" id="2_p5qm7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4tqk8"]
 shader = ExtResource("2_p5qm7")

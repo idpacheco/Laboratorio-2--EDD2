@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://df83m0dsp6ybf"]
 
-[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="1_evv8n"]
-[ext_resource type="Script" uid="uid://bxbs2xfkbwnqb" path="res://Level 1/Scripts/end.gd" id="1_lp2ru"]
-[ext_resource type="Texture2D" uid="uid://dhcii04nbmunj" path="res://Level 1/Assets+/pantallas(img+msj)/msj/done.png" id="2_evv8n"]
-[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Level 1/Assets+/Buttons/Continue_1.png" id="3_evv8n"]
-[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Level 1/Assets+/Buttons/Continue_3.png" id="4_lp2ru"]
-[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Level 1/Assets+/Buttons/Continue_2.png" id="5_hxljw"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Mision_4/Level 1/Assets+/background.png" id="1_evv8n"]
+[ext_resource type="Script" uid="uid://bxbs2xfkbwnqb" path="res://Mision_4/Level 1/Scripts/end.gd" id="1_lp2ru"]
+[ext_resource type="Texture2D" uid="uid://dhcii04nbmunj" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/msj/done.png" id="2_evv8n"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_1.png" id="3_evv8n"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_3.png" id="4_lp2ru"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_4/Level 1/Assets+/Buttons/Continue_2.png" id="5_hxljw"]
 
 [node name="Listo" type="Control"]
 layout_mode = 3

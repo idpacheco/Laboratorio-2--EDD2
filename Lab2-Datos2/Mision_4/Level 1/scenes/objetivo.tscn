@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dy43o2ot8auq3"]
 
-[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="1_6dnw0"]
-[ext_resource type="Script" uid="uid://chjooa6vpiukr" path="res://Level 1/Scripts/objetivo.gd" id="1_ax1b8"]
-[ext_resource type="Texture2D" uid="uid://dxtrm8qy5m33f" path="res://Level 1/Assets+/pantallas(img+msj)/msj/Objetivo.png" id="3_ax1b8"]
-[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Level 1/Assets+/Buttons/Play_1.png" id="4_t4amf"]
-[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Level 1/Assets+/Buttons/Play_3.png" id="5_eivqn"]
-[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Level 1/Assets+/Buttons/Play_2.png" id="6_lxrq6"]
-[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Level 1/Assets+/Buttons/back_1.png" id="7_ax1b8"]
-[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Level 1/Assets+/Buttons/back_2.png" id="8_t4amf"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Mision_4/Level 1/Assets+/background.png" id="1_6dnw0"]
+[ext_resource type="Script" uid="uid://chjooa6vpiukr" path="res://Mision_4/Level 1/Scripts/objetivo.gd" id="1_ax1b8"]
+[ext_resource type="Texture2D" uid="uid://dxtrm8qy5m33f" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/msj/Objetivo.png" id="3_ax1b8"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_4/Level 1/Assets+/Buttons/Play_1.png" id="4_t4amf"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_4/Level 1/Assets+/Buttons/Play_3.png" id="5_eivqn"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_4/Level 1/Assets+/Buttons/Play_2.png" id="6_lxrq6"]
+[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Mision_4/Level 1/Assets+/Buttons/back_1.png" id="7_ax1b8"]
+[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Mision_4/Level 1/Assets+/Buttons/back_2.png" id="8_t4amf"]
 
 [node name="Objetivo" type="Control"]
 layout_mode = 3

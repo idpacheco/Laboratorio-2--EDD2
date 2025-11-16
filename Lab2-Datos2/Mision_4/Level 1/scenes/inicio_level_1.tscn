@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3fg3f6sn5gqo"]
 
-[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="1_f0ger"]
-[ext_resource type="Script" uid="uid://d26ije8k1tsvl" path="res://Level 1/Scripts/inicio_level_1.gd" id="1_kh66m"]
-[ext_resource type="Texture2D" uid="uid://wfentn4q610q" path="res://Level 1/Assets+/pantallas(img+msj)/msj/inicio_1.png" id="3_kh66m"]
-[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Level 1/Assets+/Buttons/Play_1.png" id="4_kh66m"]
-[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Level 1/Assets+/Buttons/Play_3.png" id="5_xq8c5"]
-[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Level 1/Assets+/Buttons/Play_2.png" id="6_6ugh4"]
-[ext_resource type="Texture2D" uid="uid://bhkgjacb5msbt" path="res://Level 1/Assets+/Buttons/lupa_1.png" id="7_kh66m"]
-[ext_resource type="Texture2D" uid="uid://dijvswi4bxfg0" path="res://Level 1/Assets+/Buttons/lupa_2.png" id="8_xq8c5"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Mision_4/Level 1/Assets+/background.png" id="1_f0ger"]
+[ext_resource type="Script" uid="uid://d26ije8k1tsvl" path="res://Mision_4/Level 1/Scripts/inicio_level_1.gd" id="1_kh66m"]
+[ext_resource type="Texture2D" uid="uid://wfentn4q610q" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/msj/inicio_1.png" id="3_kh66m"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_4/Level 1/Assets+/Buttons/Play_1.png" id="4_kh66m"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_4/Level 1/Assets+/Buttons/Play_3.png" id="5_xq8c5"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_4/Level 1/Assets+/Buttons/Play_2.png" id="6_6ugh4"]
+[ext_resource type="Texture2D" uid="uid://bhkgjacb5msbt" path="res://Mision_4/Level 1/Assets+/Buttons/lupa_1.png" id="7_kh66m"]
+[ext_resource type="Texture2D" uid="uid://dijvswi4bxfg0" path="res://Mision_4/Level 1/Assets+/Buttons/lupa_2.png" id="8_xq8c5"]
 
 [node name="inicio_level1" type="Control"]
 layout_mode = 3

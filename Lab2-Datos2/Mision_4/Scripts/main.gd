@@ -25,6 +25,7 @@ var total_flow = 0
 var errores_jugador = 0
 var tiempo_inicio = 0.0
 var tiempo_restante: float
+var jugador_gano = false
 
 func _ready():
 	tiempo_inicio = Time.get_ticks_msec()
@@ -160,6 +161,15 @@ func check_end_game():
 		mensaje_final.visible = true
 
 		button_auto.visible = true
+				# 🔥 Mostrar el botón CONTINUE
+		$Continue.visible = true
+		
+# Condición de victoria
+		jugador_gano = (
+		total_flow == ford_result   # Flujo perfecto
+		and errores_jugador == 0    # Cero errores
+		and tiempo_restante > 0     # Aún quedaba tiempo
+		)
 
 		print("🏁 Juego terminado.")
 		if errores_jugador > 0:
@@ -335,3 +345,11 @@ func log_mensj2(text):
 	$Panel/RichTextLabel3.append_text(text + "\n")
 	label.clear()               # 🧹 limpia mensajes anteriores
 	label.append_text(text)     # 📝 escribe el nuevo mensaje
+
+
+func _on_continue_pressed() -> void:
+	if jugador_gano:
+		get_tree().change_scene_to_file("res://Mision_4/Scenes/Ganaste.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Mision_4/Scenes/Perdiste.tscn")
+	pass # Replace with function body.

@@ -2,10 +2,10 @@ extends Control
 
 const QTE_SCENE = preload("res://Mision_4/Level 1/scenes/QTE.tscn")
 const IMAGE_KEYS = [
-	{ "file": "res://Level 1/Assets+/Malware.png", "key": KEY_M},
-	{ "file": "res://Level 1/Assets+/Phising.png", "key": KEY_P },
-	{ "file": "res://Level 1/Assets+/SQL Injection.png", "key": KEY_S },
-	{ "file": "res://Level 1/Assets+/Spyware.png", "key": KEY_Y }
+	{ "file": "res://Mision_4/Level 1/Assets+/Malware.png", "key": KEY_M},
+	{ "file": "res://Mision_4/Level 1/Assets+/Phising.png", "key": KEY_P },
+	{ "file": "res://Mision_4/Level 1/Assets+/SQL Injection.png", "key": KEY_S },
+	{ "file": "res://Mision_4/Level 1/Assets+/Spyware.png", "key": KEY_Y }
 ]
 
 @export var points_to_win := 1000
@@ -61,7 +61,7 @@ func _update_score():
 
 func _game_win():
 	game_over = true
-	SceneTransitions.change_scene_to_file("res://Level 1/scenes/listo.tscn")
+	SceneTransitions.change_scene_to_file("res://Mision_4/Level 1/scenes/listo.tscn")
 	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
 	AudioManager.SFXPlayer.play()
 

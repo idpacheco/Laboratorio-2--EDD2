@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://bn3c5kk2qgjj5"]
 
-[ext_resource type="Script" uid="uid://dyvbmq4vl4fht" path="res://Level 1/Scripts/guia_pausa.gd" id="1_f0adl"]
-[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Level 1/Assets+/background.png" id="1_plngi"]
-[ext_resource type="Texture2D" uid="uid://k6ohrlxp7k4h" path="res://Level 1/Assets+/pantallas(img+msj)/msj/ataques.png" id="2_qc50n"]
-[ext_resource type="Texture2D" uid="uid://dfu8fdi3ntg6c" path="res://Level 1/Assets+/pantallas(img+msj)/img/p.png" id="3_0ucbt"]
-[ext_resource type="Texture2D" uid="uid://b5erctuima8j" path="res://Level 1/Assets+/pantallas(img+msj)/img/S.png" id="4_f0adl"]
-[ext_resource type="Texture2D" uid="uid://b7tqe8ff4bcqx" path="res://Level 1/Assets+/pantallas(img+msj)/img/M.png" id="5_bk2vo"]
-[ext_resource type="Texture2D" uid="uid://b12s8863vjwyu" path="res://Level 1/Assets+/pantallas(img+msj)/img/Y.png" id="6_pqhvd"]
-[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Level 1/Assets+/Buttons/close_1.png" id="8_bk2vo"]
-[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Level 1/Assets+/Buttons/close_2.png" id="9_pqhvd"]
+[ext_resource type="Script" uid="uid://dyvbmq4vl4fht" path="res://Mision_4/Level 1/Scripts/guia_pausa.gd" id="1_f0adl"]
+[ext_resource type="Texture2D" uid="uid://snd6h6t0g5je" path="res://Mision_4/Level 1/Assets+/background.png" id="1_plngi"]
+[ext_resource type="Texture2D" uid="uid://k6ohrlxp7k4h" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/msj/ataques.png" id="2_qc50n"]
+[ext_resource type="Texture2D" uid="uid://dfu8fdi3ntg6c" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/img/p.png" id="3_0ucbt"]
+[ext_resource type="Texture2D" uid="uid://b5erctuima8j" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/img/S.png" id="4_f0adl"]
+[ext_resource type="Texture2D" uid="uid://b7tqe8ff4bcqx" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/img/M.png" id="5_bk2vo"]
+[ext_resource type="Texture2D" uid="uid://b12s8863vjwyu" path="res://Mision_4/Level 1/Assets+/pantallas(img+msj)/img/Y.png" id="6_pqhvd"]
+[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_4/Level 1/Assets+/Buttons/close_1.png" id="8_bk2vo"]
+[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_4/Level 1/Assets+/Buttons/close_2.png" id="9_pqhvd"]
 
 [node name="guia" type="Control"]
 layout_mode = 3
