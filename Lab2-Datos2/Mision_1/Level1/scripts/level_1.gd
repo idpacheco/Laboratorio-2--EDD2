@@ -61,7 +61,7 @@ func _generate_random_graph(node_count:int, edge_count:int):
 
 	var viewport_size = get_viewport().get_visible_rect().size
 	var center = viewport_size / 2
-	var radius = min(viewport_size.x, viewport_size.y) * 0.35
+	var radius = min(viewport_size.x, viewport_size.y) * 0.3
 
 	# Limpiar
 	for c in node_layer.get_children(): c.queue_free()
@@ -172,17 +172,18 @@ func _dfs(start_id:String) -> Array:
 	var res = []
 
 	while stack.size() > 0:
-
 		label_structure.text = "Pila: " + str(stack)
 		await get_tree().create_timer(0.6).timeout
 
 		var u = stack.pop_back()
-
 		if not visited.has(u):
 			visited[u] = true
 			res.append(u)
 
-			for v in adjacency[u]:
+			# Push neighbors in reverse order so the smallest is visited first
+			var neigh = adjacency[u].duplicate()
+			neigh.reverse()
+			for v in neigh:
 				if not visited.has(v):
 					stack.append(v)
 
