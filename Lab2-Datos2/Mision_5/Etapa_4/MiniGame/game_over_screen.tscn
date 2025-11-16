@@ -15,10 +15,10 @@ script = ExtResource("1_jspth")
 
 [node name="GameOverLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 138.0
-offset_right = 377.0
-offset_bottom = 158.0
+offset_left = 254.0
+offset_top = 155.0
+offset_right = 378.0
+offset_bottom = 175.0
 text = "GAME OVER"
 label_settings = ExtResource("1_atman")
 horizontal_alignment = 1
@@ -29,7 +29,8 @@ offset_left = 64.0
 offset_top = 188.0
 offset_right = 575.0
 offset_bottom = 208.0
-text = "Presiona \"Esc\" para salir"
+text = "Se reinicio el sistema
+Presiona \"Esc\" para intentarlo de nuevo"
 label_settings = ExtResource("1_atman")
 horizontal_alignment = 1
 

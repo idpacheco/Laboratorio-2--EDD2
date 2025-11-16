@@ -8,6 +8,9 @@ var score = 0:
 	set(value):
 		score = value
 		score_label.text = "Score: " + str(score)
+		if score >= 100:
+			get_tree().change_scene_to_file("res://Mision_5/Etapa_4/MiniGame/Scenes/WIN.tscn")
+
 
 func _on_ship_ship_destroyed():
 	await get_tree().create_timer(1.5).timeout
