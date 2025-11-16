@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpv1it5bkftm4"]
 
 [ext_resource type="Script" uid="uid://cdqxaam5n241h" path="res://Mision_5/Etapa_3/grafo/scripts/etp3_winner.gd" id="1_i3ghj"]
-[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_5/Etapa_3/grafo/assets/background.png" id="2_2w7no"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="2_2w7no"]
 [ext_resource type="Texture2D" uid="uid://386guhos4my5" path="res://Mision_5/Etapa_3/grafo/assets/Pantallas grafo etapa_3/7.png" id="3_50y5q"]
-[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_1.png" id="4_e3c0i"]
-[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_2.png" id="5_lqcul"]
+[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_3/Mision 3/assets/Buttons/win_1.png" id="4_e3c0i"]
+[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_3/Mision 3/assets/Buttons/win_2.png" id="5_lqcul"]
 
 [node name="winner" type="Control"]
 layout_mode = 3

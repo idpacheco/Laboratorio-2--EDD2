@@ -25,6 +25,7 @@ texture = ExtResource("1_05cau")
 expand_mode = 1
 
 [node name="Texto" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 53.0
 offset_right = 494.0
@@ -43,6 +44,7 @@ texture_pressed = ExtResource("4_bucd5")
 stretch_mode = 0
 
 [node name="close" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 596.0
 offset_top = 7.0
 offset_right = 623.0

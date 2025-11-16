@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c700aikl4icmg" path="res://Mision_4/Scripts/contexto_4.gd" id="1_3umw6"]
 [ext_resource type="Texture2D" uid="uid://cypejt27gr6m8" path="res://Mision_4/Assets/background.png" id="2_oq6xr"]
-[ext_resource type="Texture2D" uid="uid://j6gcdah6rprw" path="res://Mision_4/Assets/24.png" id="3_unu83"]
+[ext_resource type="Texture2D" uid="uid://dbwptgj3l8lyh" path="res://Mision_5/Etapa_4/Grafo/Assets/35.png" id="3_3umw6"]
 [ext_resource type="Texture2D" uid="uid://7xxypu8cq6tq" path="res://Mision_4/Assets/Textures/Play1.tres" id="4_tecxi"]
 [ext_resource type="Texture2D" uid="uid://b1yoqrjnbc07u" path="res://Mision_4/Assets/Textures/Play2.tres" id="5_5qj1s"]
 [ext_resource type="Texture2D" uid="uid://cos0qjtd0nmay" path="res://Mision_4/Assets/Textures/play3.tres" id="6_kbjsh"]
@@ -17,20 +17,23 @@ grow_vertical = 2
 script = ExtResource("1_3umw6")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_oq6xr")
 expand_mode = 1
 
 [node name="Text" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 89.0
 offset_top = 76.0
 offset_right = 538.0
 offset_bottom = 266.0
-texture = ExtResource("3_unu83")
+texture = ExtResource("3_3umw6")
 expand_mode = 1
 
 [node name="Continue" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 221.0
 offset_top = 287.0
 offset_right = 323.0
