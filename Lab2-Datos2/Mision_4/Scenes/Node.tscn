@@ -1,36 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1m87pvdlgqjm"]
+[gd_scene load_steps=4 format=3 uid="uid://c1m87pvdlgqjm"]
 
 [ext_resource type="Script" uid="uid://d0bg2qxsyon5c" path="res://Mision_4/Scripts/node.gd" id="1_2j7em"]
-
-[sub_resource type="Gradient" id="Gradient_05h8r"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_of6nh"]
-gradient = SubResource("Gradient_05h8r")
-width = 120
-height = 120
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_r1888"]
-specular_texture = SubResource("GradientTexture2D_of6nh")
+[ext_resource type="Texture2D" uid="uid://uf7w34akqfsp" path="res://Mision_3/Mision 3/assets/Vertice_1.png" id="2_8p4o7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2j7em"]
-radius = 6.08276
+radius = 10.0125
 
 [node name="Node" type="Area2D"]
 script = ExtResource("1_2j7em")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.75, 0.75)
-scale = Vector2(2.5, 2.5)
-texture = SubResource("CanvasTexture_r1888")
+position = Vector2(0.5, 0.499999)
+texture = ExtResource("2_8p4o7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_2j7em")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -2.0
-offset_top = 2.0
-offset_right = 53.0
-offset_bottom = 25.0
+offset_left = -29.0
+offset_top = 13.0
+offset_right = 37.0
+offset_bottom = 36.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

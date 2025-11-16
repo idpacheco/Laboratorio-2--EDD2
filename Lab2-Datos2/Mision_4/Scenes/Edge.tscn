@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dq13dxvi7ypqx"]
+[gd_scene load_steps=3 format=3 uid="uid://dq13dxvi7ypqx"]
 
 [ext_resource type="Script" uid="uid://y6qu2sc5ga8n" path="res://Mision_4/Scripts/edge.gd" id="1_h57xw"]
+[ext_resource type="Texture2D" uid="uid://brotm2cbihuca" path="res://Mision_3/Mision 3/assets/cable4.png" id="1_q12ba"]
 
 [node name="Edge" type="Line2D"]
+texture = ExtResource("1_q12ba")
 script = ExtResource("1_h57xw")
 
 [node name="Label" type="Label" parent="."]

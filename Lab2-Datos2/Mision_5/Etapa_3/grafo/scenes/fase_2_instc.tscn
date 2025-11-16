@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdh3030pyvo7f"]
 
 [ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_cmuew"]
-[ext_resource type="Script" uid="uid://ckimw2yui0c7l" path="res://Mision_3/Mision 3/scripts/fase_2_instc.gd" id="1_vmt0n"]
+[ext_resource type="Script" uid="uid://ckimw2yui0c7l" path="res://Mision_5/Etapa_3/grafo/scripts/fase_2_instc.gd" id="1_vmt0n"]
 [ext_resource type="Texture2D" uid="uid://0c7u7h738ksl" path="res://Mision_3/Mision 3/assets/Pantallas Grafo3/7.png" id="2_vmt0n"]
 [ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Mision 3/assets/Buttons/Continue_1.png" id="3_s3k7f"]
 [ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Mision 3/assets/Buttons/Continue_3.png" id="4_y2uoh"]

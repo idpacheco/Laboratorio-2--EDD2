@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://i353iyl77wko"]
 
 [ext_resource type="Texture2D" uid="uid://brotm2cbihuca" path="res://Mision_3/Mision 3/assets/cable4.png" id="1_p7d0i"]
-[ext_resource type="Script" uid="uid://bgg4pgjv70llg" path="res://Mision_3/Mision 3/scripts/conexion.gd" id="1_v7hyp"]
+[ext_resource type="Script" uid="uid://bgg4pgjv70llg" path="res://Mision_5/Etapa_3/grafo/scripts/conexion.gd" id="1_v7hyp"]
 
 [node name="Conexion" type="Line2D"]
 texture_filter = 1
