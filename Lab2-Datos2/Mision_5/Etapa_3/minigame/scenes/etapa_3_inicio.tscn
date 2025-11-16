@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3l6n2q8fd6jr"]
+
+[ext_resource type="Script" uid="uid://bdapsk28dklvw" path="res://Mision_5/Etapa_3/minigame/scripts/etapa_3_inicio.gd" id="1_06asl"]
+[ext_resource type="Texture2D" uid="uid://b6ntiasniewow" path="res://Mision_5/Etapa_3/minigame/assets/background.png" id="2_uip5f"]
+[ext_resource type="Texture2D" uid="uid://bppiid248ow7b" path="res://Mision_5/Etapa_3/minigame/assets/Pantallas minigame etapa_3/2.png" id="3_d7k6j"]
+[ext_resource type="Texture2D" uid="uid://b4se4piu7srlm" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Continue_1.png" id="4_mq4gu"]
+[ext_resource type="Texture2D" uid="uid://0tv3rt3mksvi" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Continue_3.png" id="5_8y8j5"]
+[ext_resource type="Texture2D" uid="uid://ckn4tw5o2uq4l" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Continue_2.png" id="6_jj1c0"]
+[ext_resource type="Texture2D" uid="uid://baygk3qrujpap" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_1.png" id="7_v6i3p"]
+[ext_resource type="Texture2D" uid="uid://c7cbumcmy1dme" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_2.png" id="8_ke4sr"]
+
+[node name="etapa3_inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06asl")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 641.0
+offset_bottom = 360.0
+texture = ExtResource("2_uip5f")
+expand_mode = 1
+
+[node name="texto" type="TextureRect" parent="."]
+offset_left = 118.0
+offset_top = 73.0
+offset_right = 506.0
+offset_bottom = 265.0
+texture = ExtResource("3_d7k6j")
+expand_mode = 1
+
+[node name="next_to_inst" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 270.0
+offset_right = 362.0
+offset_bottom = 303.0
+texture_normal = ExtResource("4_mq4gu")
+texture_pressed = ExtResource("5_8y8j5")
+texture_hover = ExtResource("6_jj1c0")
+
+[node name="close" type="TextureButton" parent="."]
+offset_left = 596.0
+offset_top = 7.0
+offset_right = 623.0
+offset_bottom = 32.0
+texture_normal = ExtResource("7_v6i3p")
+texture_pressed = ExtResource("8_ke4sr")
+stretch_mode = 0
+
+[connection signal="pressed" from="next_to_inst" to="." method="_on_next_to_inst_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd446oeyc4tym"]
+
+[ext_resource type="Script" uid="uid://bg4xmtmo5a4dk" path="res://Mision_5/Etapa_3/minigame/search.gd" id="1_2yy1j"]
+[ext_resource type="Texture2D" uid="uid://b6ntiasniewow" path="res://Mision_5/Etapa_3/minigame/assets/background.png" id="2_1i4c4"]
+[ext_resource type="Texture2D" uid="uid://dj3d04o4st414" path="res://Mision_5/Etapa_3/minigame/assets/search.png" id="3_gx4wn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etj5x"]
+size = Vector2(11, 9)
+
+[node name="Search" type="Node2D"]
+script = ExtResource("1_2yy1j")
+
+[node name="Images" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(319.5, 179.5)
+scale = Vector2(0.416016, 0.350586)
+texture = ExtResource("2_1i4c4")
+
+[node name="Search" type="Sprite2D" parent="."]
+position = Vector2(321, 185)
+scale = Vector2(0.691875, 1.03212)
+texture = ExtResource("3_gx4wn")
+
+[node name="Item_1" type="Node2D" parent="."]
+position = Vector2(70.8992, 101.363)
+
+[node name="Area2D" type="Area2D" parent="Item_1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_1/Area2D"]
+position = Vector2(-0.564476, -0.564468)
+shape = SubResource("RectangleShape2D_etj5x")
+
+[node name="Item_2" type="Node2D" parent="."]
+position = Vector2(203.551, 98.5407)
+
+[node name="Area2D" type="Area2D" parent="Item_2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_2/Area2D"]
+position = Vector2(1.12894, -0.564468)
+shape = SubResource("RectangleShape2D_etj5x")
+
+[node name="Item_3" type="Node2D" parent="."]
+position = Vector2(467.724, 189.421)
+
+[node name="Area2D" type="Area2D" parent="Item_3"]
+position = Vector2(1.12897, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_3/Area2D"]
+position = Vector2(0.564453, 0.564468)
+shape = SubResource("RectangleShape2D_etj5x")
+
+[node name="Item_4" type="Node2D" parent="."]
+position = Vector2(529.889, 125.071)
+
+[node name="Area2D" type="Area2D" parent="Item_4"]
+position = Vector2(-2.25793, -3.38684)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_4/Area2D"]
+position = Vector2(2.25793, 3.38684)
+shape = SubResource("RectangleShape2D_etj5x")
+
+[node name="Item_5" type="Node2D" parent="."]
+position = Vector2(573.918, 209.178)
+
+[node name="Area2D" type="Area2D" parent="Item_5"]
+position = Vector2(-0.564453, 1.12895)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_5/Area2D"]
+position = Vector2(-1.12897, 0.564453)
+shape = SubResource("RectangleShape2D_etj5x")
+
+[node name="Found" type="HBoxContainer" parent="."]
+offset_left = 92.0
+offset_top = -1.0
+offset_right = 536.0
+offset_bottom = 39.0
+
+[node name="ColorRect" type="ColorRect" parent="Found"]
+layout_mode = 2
+color = Color(1, 1, 0.0823529, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Found"]
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="Found"]
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Found"]
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="Found"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
+[connection signal="mouse_entered" from="Item_1/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="Item_2/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="Item_3/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="Item_4/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="Item_5/Area2D" to="." method="_on_area_2d_mouse_entered"]

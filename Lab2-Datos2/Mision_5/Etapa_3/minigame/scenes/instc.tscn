@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvicwf6n8u53w"]
+
+[ext_resource type="Script" uid="uid://5gcplkpebmu0" path="res://Mision_5/Etapa_3/minigame/scripts/instc.gd" id="1_aanju"]
+[ext_resource type="Texture2D" uid="uid://b6ntiasniewow" path="res://Mision_5/Etapa_3/minigame/assets/background.png" id="2_ssdu4"]
+[ext_resource type="Texture2D" uid="uid://k054xr43rsgq" path="res://Mision_5/Etapa_3/minigame/assets/Pantallas minigame etapa_3/3.png" id="3_8nr0u"]
+[ext_resource type="Texture2D" uid="uid://dyqo10g1pwrmt" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Play_1.png" id="4_tdj1r"]
+[ext_resource type="Texture2D" uid="uid://bpky1c8ygld27" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Play_3.png" id="5_n1bq0"]
+[ext_resource type="Texture2D" uid="uid://cuucjb7dl1dmq" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/Play_2.png" id="6_73wvw"]
+[ext_resource type="Texture2D" uid="uid://baygk3qrujpap" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_1.png" id="7_bcu1k"]
+[ext_resource type="Texture2D" uid="uid://c7cbumcmy1dme" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_2.png" id="8_di3vm"]
+
+[node name="instc" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aanju")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_ssdu4")
+expand_mode = 1
+
+[node name="texto" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 76.0
+offset_right = 484.0
+offset_bottom = 260.0
+texture = ExtResource("3_8nr0u")
+expand_mode = 1
+
+[node name="next_to_search" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 270.0
+offset_right = 362.0
+offset_bottom = 303.0
+texture_normal = ExtResource("4_tdj1r")
+texture_pressed = ExtResource("5_n1bq0")
+texture_hover = ExtResource("6_73wvw")
+
+[node name="close" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 7.0
+offset_right = 623.0
+offset_bottom = 32.0
+texture_normal = ExtResource("7_bcu1k")
+texture_pressed = ExtResource("8_di3vm")
+stretch_mode = 0
+
+[connection signal="pressed" from="next_to_search" to="." method="_on_next_to_search_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

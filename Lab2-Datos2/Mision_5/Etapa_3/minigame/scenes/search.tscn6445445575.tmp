@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://cd446oeyc4tym"]
+
+[ext_resource type="Script" uid="uid://bc4xd1g56sldb" path="res://Mision_5/Etapa_3/minigame/scripts/search.gd" id="1_1i4c4"]
+[ext_resource type="Texture2D" uid="uid://b6ntiasniewow" path="res://Mision_5/Etapa_3/minigame/assets/background.png" id="2_1i4c4"]
+[ext_resource type="Texture2D" uid="uid://dj3d04o4st414" path="res://Mision_5/Etapa_3/minigame/assets/search.png" id="3_gx4wn"]
+[ext_resource type="Texture2D" uid="uid://dbhgr4rt3lh1y" path="res://Mision_5/Etapa_3/minigame/assets/Logo1.png" id="4_1i4c4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yy1j"]
+size = Vector2(11.2871, 9.99162)
+
+[node name="Search" type="Node2D"]
+script = ExtResource("1_1i4c4")
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Images" type="Node2D" parent="UI"]
+
+[node name="Background" type="TextureRect" parent="UI/Images"]
+offset_right = 1536.0
+offset_bottom = 1024.0
+scale = Vector2(0.416016, 0.350586)
+texture = ExtResource("2_1i4c4")
+
+[node name="Search" type="Sprite2D" parent="UI/Images"]
+position = Vector2(320, 218)
+scale = Vector2(0.688437, 1.03212)
+texture = ExtResource("3_gx4wn")
+
+[node name="Barras" type="TextureRect" parent="UI"]
+offset_left = 176.0
+offset_top = 21.0
+offset_right = 473.0
+offset_bottom = 104.0
+texture = ExtResource("4_1i4c4")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+offset_left = 215.0
+offset_top = 87.0
+offset_right = 438.0
+offset_bottom = 101.0
+show_percentage = false
+
+[node name="TimeLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultLabel" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CountdownTimer" type="Timer" parent="UI"]
+
+[node name="EndTimer" type="Timer" parent="UI"]
+
+[node name="Item_1" type="Node2D" parent="."]
+
+[node name="Area2D_1" type="Area2D" parent="Item_1"]
+position = Vector2(70.5743, 133.017)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_1/Area2D_1"]
+position = Vector2(0.425735, 0.983231)
+shape = SubResource("RectangleShape2D_2yy1j")
+
+[node name="Item_2" type="Node2D" parent="."]
+position = Vector2(201.532, 131.105)
+
+[node name="Area2D_2" type="Area2D" parent="Item_2"]
+position = Vector2(0.637253, 0.318619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_2/Area2D_2"]
+position = Vector2(0.425735, 0.983231)
+shape = SubResource("RectangleShape2D_2yy1j")
+
+[node name="Item_3" type="Node2D" parent="."]
+
+[node name="Area2D_3" type="Area2D" parent="Item_3"]
+position = Vector2(467.452, 222.276)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_3/Area2D_3"]
+position = Vector2(0.425735, 0.983231)
+shape = SubResource("RectangleShape2D_2yy1j")
+
+[node name="Item_4" type="Node2D" parent="."]
+
+[node name="Area2D_4" type="Area2D" parent="Item_4"]
+position = Vector2(526.609, 155.863)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_4/Area2D_4"]
+position = Vector2(0.425735, 0.983231)
+shape = SubResource("RectangleShape2D_2yy1j")
+
+[node name="Item_5" type="Node2D" parent="."]
+
+[node name="Area2D_5" type="Area2D" parent="Item_5"]
+position = Vector2(571.203, 241.098)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_5/Area2D_5"]
+position = Vector2(0.425735, 0.983231)
+shape = SubResource("RectangleShape2D_2yy1j")
+
+[connection signal="mouse_entered" from="Item_1/Area2D_1" to="." method="_on_area_2d_1_mouse_entered"]
+[connection signal="mouse_entered" from="Item_2/Area2D_2" to="." method="_on_area_2d_2_mouse_entered"]
+[connection signal="mouse_entered" from="Item_3/Area2D_3" to="." method="_on_area_2d_3_mouse_entered"]
+[connection signal="mouse_entered" from="Item_4/Area2D_4" to="." method="_on_area_2d_4_mouse_entered"]
+[connection signal="mouse_entered" from="Item_5/Area2D_5" to="." method="_on_area_2d_5_mouse_entered"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2qqw1x0a5rdo"]
+
+[ext_resource type="Texture2D" uid="uid://b6ntiasniewow" path="res://Mision_5/Etapa_3/minigame/assets/background.png" id="1_05cau"]
+[ext_resource type="Script" uid="uid://d16h8o5n0x4sw" path="res://Mision_5/Etapa_3/minigame/scripts/perdiste.gd" id="1_764p8"]
+[ext_resource type="Texture2D" uid="uid://b2m2sudkxrum1" path="res://Mision_5/Etapa_3/minigame/assets/Pantallas minigame etapa_3/5.png" id="2_764p8"]
+[ext_resource type="Texture2D" uid="uid://pmff8g51sbfs" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/back_1.png" id="3_f7nmt"]
+[ext_resource type="Texture2D" uid="uid://20cwlke8h2os" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/back_2.png" id="4_bucd5"]
+[ext_resource type="Texture2D" uid="uid://baygk3qrujpap" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_1.png" id="5_0twl7"]
+[ext_resource type="Texture2D" uid="uid://c7cbumcmy1dme" path="res://Mision_5/Etapa_3/minigame/assets/Buttons/close_2.png" id="6_fl6wi"]
+
+[node name="perdiste" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_764p8")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_05cau")
+expand_mode = 1
+
+[node name="Texto" type="TextureRect" parent="."]
+offset_left = 131.0
+offset_top = 53.0
+offset_right = 494.0
+offset_bottom = 270.0
+texture = ExtResource("2_764p8")
+expand_mode = 1
+
+[node name="retry" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 293.0
+offset_top = 281.0
+offset_right = 333.0
+offset_bottom = 321.0
+texture_normal = ExtResource("3_f7nmt")
+texture_pressed = ExtResource("4_bucd5")
+stretch_mode = 0
+
+[node name="close" type="TextureButton" parent="."]
+offset_left = 596.0
+offset_top = 7.0
+offset_right = 623.0
+offset_bottom = 32.0
+texture_normal = ExtResource("5_0twl7")
+texture_pressed = ExtResource("6_fl6wi")
+stretch_mode = 0
+
+[connection signal="pressed" from="retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
