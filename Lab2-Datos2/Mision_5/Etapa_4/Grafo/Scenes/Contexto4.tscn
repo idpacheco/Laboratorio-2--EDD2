@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtsnfc6w0k8g7"]
+
+[ext_resource type="Script" uid="uid://c700aikl4icmg" path="res://Mision_4/Scripts/contexto_4.gd" id="1_3umw6"]
+[ext_resource type="Texture2D" uid="uid://cypejt27gr6m8" path="res://Mision_4/Assets/background.png" id="2_oq6xr"]
+[ext_resource type="Texture2D" uid="uid://j6gcdah6rprw" path="res://Mision_4/Assets/24.png" id="3_unu83"]
+[ext_resource type="Texture2D" uid="uid://7xxypu8cq6tq" path="res://Mision_4/Assets/Textures/Play1.tres" id="4_tecxi"]
+[ext_resource type="Texture2D" uid="uid://b1yoqrjnbc07u" path="res://Mision_4/Assets/Textures/Play2.tres" id="5_5qj1s"]
+[ext_resource type="Texture2D" uid="uid://cos0qjtd0nmay" path="res://Mision_4/Assets/Textures/play3.tres" id="6_kbjsh"]
+
+[node name="Contexto4" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3umw6")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_oq6xr")
+expand_mode = 1
+
+[node name="Text" type="TextureRect" parent="."]
+offset_left = 89.0
+offset_top = 76.0
+offset_right = 538.0
+offset_bottom = 266.0
+texture = ExtResource("3_unu83")
+expand_mode = 1
+
+[node name="Continue" type="TextureButton" parent="."]
+offset_left = 221.0
+offset_top = 287.0
+offset_right = 323.0
+offset_bottom = 320.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tecxi")
+texture_pressed = ExtResource("5_5qj1s")
+texture_hover = ExtResource("6_kbjsh")
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
