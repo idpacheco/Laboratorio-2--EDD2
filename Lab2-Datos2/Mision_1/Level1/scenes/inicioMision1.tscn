@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjl7qm578h4ff"]
+
+[ext_resource type="Script" uid="uid://chykx56al48ie" path="res://Mision_1/Level1/scripts/inicio_mision_1.gd" id="1_sdqap"]
+[ext_resource type="Texture2D" uid="uid://cuokmxs34g5uk" path="res://Mision_1/Level1/Assets/inicio.png" id="2_bo8ys"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_1/Level1/Assets/Buttons/Play_1.png" id="3_x6cl0"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_1/Level1/Assets/Buttons/Play_2.png" id="4_jtegt"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_1/Level1/Assets/Buttons/Play_3.png" id="5_x8xeo"]
+
+[node name="InicioMision1" type="Node2D"]
+script = ExtResource("1_sdqap")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_bo8ys")
+expand_mode = 1
+
+[node name="playButton" type="TextureButton" parent="."]
+offset_left = 259.0
+offset_top = 277.0
+offset_right = 361.0
+offset_bottom = 317.0
+texture_normal = ExtResource("3_x6cl0")
+texture_pressed = ExtResource("4_jtegt")
+texture_hover = ExtResource("5_x8xeo")
+
+[connection signal="pressed" from="playButton" to="." method="_on_play_button_pressed"]

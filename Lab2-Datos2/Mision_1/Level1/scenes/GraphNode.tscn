@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8wjl5e8rvsu0"]
 
-[ext_resource type="Script" uid="uid://djkhps3rno0lj" path="res://Level1/scripts/GraphNode.gd" id="1_po2py"]
-[ext_resource type="Texture2D" uid="uid://bgaqxpuycksro" path="res://Level1/Assets/nodo.png" id="2_sdl34"]
+[ext_resource type="Script" uid="uid://djkhps3rno0lj" path="res://Mision_1/Level1/scripts/GraphNode.gd" id="1_po2py"]
+[ext_resource type="Texture2D" uid="uid://bgaqxpuycksro" path="res://Mision_1/Level1/Assets/nodo.png" id="2_sdl34"]
 
 [node name="GraphNode" type="Node2D"]
 script = ExtResource("1_po2py")

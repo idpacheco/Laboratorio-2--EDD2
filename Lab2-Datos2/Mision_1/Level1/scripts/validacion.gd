@@ -5,8 +5,12 @@ const NODE_WIDGET = preload("res://Mision_1/Level1/scenes/ValidationNode.tscn")
 @onready var nodes_container = $NodesContainer
 @onready var button_confirm = $ButtonConfirm
 @onready var label_feedback = $LabelFeedback
+@onready var win = $win
+@onready var lose = $lose
 
 func _ready():
+	win.visible = false
+	lose.visible = false
 	_spawn_nodes()
 	button_confirm.pressed.connect(_validate)
 
@@ -30,13 +34,11 @@ func _validate():
 		if widget.selected:
 			user_selected.append(widget.node_id)
 
-	print("Usuario seleccionó:", user_selected)
-	print("Comprometidos reales:", GameState.compromised)
 
 	if arrays_match_unordered(user_selected, GameState.compromised):
-		label_feedback.text = "✔ ¡Correcto!"
+		win.visible = true
 	else:
-		label_feedback.text = "❌ Incorrecto. Los nodos infectados eran: " + str(GameState.compromised)
+		lose.visible = true
 		
 func arrays_match_unordered(a: Array, b: Array) -> bool:
 	if a.size() != b.size():
@@ -47,3 +49,15 @@ func arrays_match_unordered(a: Array, b: Array) -> bool:
 			return false
 
 	return true
+
+
+func _on_try_again_pressed() -> void:
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
+	SceneTransitions.change_scene_to_file("res://Mision_1/Level1/scenes/Level1.tscn")
+
+
+func _on_win_pressed() -> void:
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
+	SceneTransitions.change_scene_to_file("res://Mision_2/Mision 2/Scenes/main_mision_2.tscn")

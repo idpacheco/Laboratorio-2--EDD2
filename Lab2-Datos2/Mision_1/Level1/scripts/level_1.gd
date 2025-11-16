@@ -228,6 +228,12 @@ func _run_animation():
 
 	if GameState.has_both_traversals():
 		print("✔ Ambos recorridos listos, cargando Validación...")
-		get_tree().change_scene_to_file("res://Level1/scenes/validacion.tscn")
+		get_tree().change_scene_to_file("res://Mision_1/Level1/scenes/validacion.tscn")
 	else:
 		print("📌 Aún falta un recorrido. Ejecuta el otro.")
+
+
+func _on_help_button_pressed() -> void:
+	AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+	AudioManager.SFXPlayer.play()
+	SceneTransitions.change_scene_to_file("res://Mision_1/Level1/scenes/help.tscn")

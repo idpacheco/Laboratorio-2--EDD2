@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0codxpwc7avs"]
+
+[ext_resource type="Texture2D" uid="uid://bu2arwn5cb35t" path="res://Mision_1/Level1/Assets/background.png" id="1_omi1u"]
+[ext_resource type="Script" uid="uid://b0pkq0nkc2j1n" path="res://Mision_1/Level1/scripts/contexto.gd" id="1_wpprr"]
+[ext_resource type="Texture2D" uid="uid://df3iflpkoxni6" path="res://Mision_1/Level1/Assets/Aviso1.png" id="3_nht80"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_1/Level1/Assets/Buttons/Continue_1.png" id="4_kpvwo"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_1/Level1/Assets/Buttons/Continue_2.png" id="5_0hv50"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_1/Level1/Assets/Buttons/Continue_3.png" id="6_0n27o"]
+[ext_resource type="Texture2D" uid="uid://coxkh66ar3a14" path="res://Mision_1/Level1/Assets/Aviso2.png" id="7_rfp8c"]
+
+[node name="Contexto" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wpprr")
+
+[node name="fondo" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 641.0
+offset_bottom = 359.0
+texture = ExtResource("1_omi1u")
+expand_mode = 1
+
+[node name="aviso1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 96.0
+offset_right = 548.0
+offset_bottom = 272.0
+texture = ExtResource("3_nht80")
+expand_mode = 1
+
+[node name="continue" type="TextureButton" parent="aviso1"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 198.0
+offset_right = 295.0
+offset_bottom = 238.0
+texture_normal = ExtResource("4_kpvwo")
+texture_pressed = ExtResource("5_0hv50")
+texture_hover = ExtResource("6_0n27o")
+
+[node name="aviso2" type="TextureRect" parent="."]
+offset_left = 72.0
+offset_top = 96.0
+offset_right = 548.0
+offset_bottom = 272.0
+texture = ExtResource("7_rfp8c")
+expand_mode = 1
+
+[node name="continue2" type="TextureButton" parent="aviso2"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 198.0
+offset_right = 295.0
+offset_bottom = 238.0
+texture_normal = ExtResource("4_kpvwo")
+texture_pressed = ExtResource("5_0hv50")
+texture_hover = ExtResource("6_0n27o")
+
+[connection signal="pressed" from="aviso1/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="aviso2/continue2" to="." method="_on_continue_2_pressed"]
