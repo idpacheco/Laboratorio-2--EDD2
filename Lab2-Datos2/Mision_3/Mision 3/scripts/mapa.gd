@@ -185,11 +185,9 @@ func _on_BotonConfirmar_pressed():
 
 	# Comparación actual: ¿las conexiones del jugador son las mismas que el MST?
 	if _es_ganador(mst):
-		$"../UI/GanasteLabel".visible = true
-		$"../UI/PerdisteLabel".visible = false
+		SceneTransitions.change_scene_to_file("res://Mision_3/Mision 3/scenes/winner.tscn")
 	else:
-		$"../UI/GanasteLabel".visible = false
-		$"../UI/PerdisteLabel".visible = true
+		SceneTransitions.change_scene_to_file("res://Mision_3/Mision 3/scenes/loser.tscn")
 
 func _es_ganador(mst: Array) -> bool:
 	var jugador_set = []

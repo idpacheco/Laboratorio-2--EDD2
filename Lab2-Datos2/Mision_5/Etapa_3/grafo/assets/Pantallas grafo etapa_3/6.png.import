@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccieskoqxqfhd"
-path="res://.godot/imported/9.png-d79a8b25789d3e097b7b1ef6bc2e850d.ctex"
+uid="uid://dpg6jc74vub6c"
+path="res://.godot/imported/6.png-313dd0bd16f0a93cbddf7d7259ac573a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mision_5/Etapa_3/grafo/assets/Pantallas Grafo3/9.png"
-dest_files=["res://.godot/imported/9.png-d79a8b25789d3e097b7b1ef6bc2e850d.ctex"]
+source_file="res://Mision_5/Etapa_3/grafo/assets/Pantallas grafo etapa_3/6.png"
+dest_files=["res://.godot/imported/6.png-313dd0bd16f0a93cbddf7d7259ac573a.ctex"]
 
 [params]
 

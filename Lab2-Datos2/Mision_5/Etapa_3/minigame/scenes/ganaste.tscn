@@ -26,6 +26,7 @@ texture = ExtResource("1_asnwr")
 expand_mode = 1
 
 [node name="Texto" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 150.0
 offset_top = 77.0
 offset_right = 472.0

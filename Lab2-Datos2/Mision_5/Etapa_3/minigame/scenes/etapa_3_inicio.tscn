@@ -27,6 +27,7 @@ texture = ExtResource("2_uip5f")
 expand_mode = 1
 
 [node name="texto" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 118.0
 offset_top = 73.0
 offset_right = 506.0
@@ -45,6 +46,7 @@ texture_pressed = ExtResource("5_8y8j5")
 texture_hover = ExtResource("6_jj1c0")
 
 [node name="close" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 596.0
 offset_top = 7.0
 offset_right = 623.0

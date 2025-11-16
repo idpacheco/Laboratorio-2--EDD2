@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://cq7u726wmg7um"]
 
-[ext_resource type="Script" uid="uid://ubynpohjhcr2" path="res://Mision_5/Etapa_3/grafo/scripts/mapa.gd" id="1_4it05"]
-[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_3/Mision 3/assets/background.png" id="1_6mpqr"]
-[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_3/Mision 3/assets/box.png" id="2_pnq37"]
-[ext_resource type="Texture2D" uid="uid://bhhg2la2j7jm4" path="res://Mision_3/Mision 3/assets/box_3.png" id="4_p21qj"]
-[ext_resource type="Texture2D" uid="uid://b4fwpj1x8n0oh" path="res://Mision_3/Mision 3/assets/Buttons/connect_1.png" id="5_dfaqw"]
-[ext_resource type="Texture2D" uid="uid://bdy4ed3bgjvc3" path="res://Mision_3/Mision 3/assets/Buttons/disconnect_1.png" id="5_i2uxo"]
-[ext_resource type="Texture2D" uid="uid://dlf4b3pjisv6o" path="res://Mision_3/Mision 3/assets/Buttons/connect_2.png" id="6_674vu"]
-[ext_resource type="Texture2D" uid="uid://ckx46p811hodc" path="res://Mision_3/Mision 3/assets/Buttons/disconnect_2.png" id="6_k2jah"]
-[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_3/Mision 3/assets/Buttons/win_1.png" id="9_saonw"]
-[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_3/Mision 3/assets/Buttons/win_2.png" id="10_ixyxp"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_5/Etapa_3/grafo/assets/background.png" id="1_4nrrw"]
+[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_5/Etapa_3/grafo/assets/box.png" id="2_o62pt"]
+[ext_resource type="Texture2D" uid="uid://bhhg2la2j7jm4" path="res://Mision_5/Etapa_3/grafo/assets/box_3.png" id="3_ldwmf"]
+[ext_resource type="Script" uid="uid://cq7v4k2fh81ud" path="res://Mision_5/Etapa_3/grafo/scripts/mapa_etapa3.gd" id="3_o62pt"]
+[ext_resource type="Texture2D" uid="uid://b4fwpj1x8n0oh" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/connect_1.png" id="4_nhurs"]
+[ext_resource type="Texture2D" uid="uid://dlf4b3pjisv6o" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/connect_2.png" id="5_eexev"]
+[ext_resource type="Texture2D" uid="uid://bdy4ed3bgjvc3" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/disconnect_1.png" id="6_bdm7u"]
+[ext_resource type="Texture2D" uid="uid://ckx46p811hodc" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/disconnect_2.png" id="7_axq6t"]
+[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_1.png" id="8_7k0yi"]
+[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_2.png" id="9_se3ag"]
 
 [sub_resource type="GDScript" id="GDScript_g61wp"]
 
@@ -18,7 +18,7 @@
 [node name="background" type="TextureRect" parent="."]
 offset_right = 640.0
 offset_bottom = 361.0
-texture = ExtResource("1_6mpqr")
+texture = ExtResource("1_4nrrw")
 expand_mode = 1
 
 [node name="Box_" type="TextureRect" parent="."]
@@ -26,11 +26,11 @@ offset_left = 199.0
 offset_top = 36.0
 offset_right = 568.0
 offset_bottom = 318.0
-texture = ExtResource("2_pnq37")
+texture = ExtResource("2_o62pt")
 expand_mode = 1
 
 [node name="Mapa" type="Node2D" parent="."]
-script = ExtResource("1_4it05")
+script = ExtResource("3_o62pt")
 
 [node name="ConexionContainer" type="Node2D" parent="Mapa"]
 
@@ -44,7 +44,7 @@ offset_left = 14.0
 offset_top = 45.0
 offset_right = 169.0
 offset_bottom = 143.0
-texture = ExtResource("4_p21qj")
+texture = ExtResource("3_ldwmf")
 expand_mode = 1
 
 [node name="BotonConectar" type="TextureButton" parent="UI"]
@@ -52,8 +52,8 @@ offset_left = 75.0
 offset_top = 167.0
 offset_right = 115.0
 offset_bottom = 207.0
-texture_normal = ExtResource("5_dfaqw")
-texture_pressed = ExtResource("6_674vu")
+texture_normal = ExtResource("4_nhurs")
+texture_pressed = ExtResource("5_eexev")
 stretch_mode = 0
 
 [node name="BotonDesconectar" type="TextureButton" parent="UI"]
@@ -61,8 +61,8 @@ offset_left = 75.0
 offset_top = 216.0
 offset_right = 115.0
 offset_bottom = 256.0
-texture_normal = ExtResource("5_i2uxo")
-texture_pressed = ExtResource("6_k2jah")
+texture_normal = ExtResource("6_bdm7u")
+texture_pressed = ExtResource("7_axq6t")
 stretch_mode = 0
 
 [node name="BotonVerOptima" type="Button" parent="UI"]
@@ -78,8 +78,8 @@ offset_left = 75.0
 offset_top = 263.0
 offset_right = 115.0
 offset_bottom = 303.0
-texture_normal = ExtResource("9_saonw")
-texture_pressed = ExtResource("10_ixyxp")
+texture_normal = ExtResource("8_7k0yi")
+texture_pressed = ExtResource("9_se3ag")
 stretch_mode = 0
 
 [node name="CostoLabel" type="Label" parent="UI"]

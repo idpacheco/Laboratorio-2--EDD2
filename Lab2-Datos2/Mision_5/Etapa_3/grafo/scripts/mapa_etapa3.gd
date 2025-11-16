@@ -8,7 +8,7 @@ var seleccionando: bool = false
 var seleccion_1: int = -1
 var seleccionando_desconectar: bool = false
 var seleccion_desconectar_1: int = -1
-var prim = preload("res://Mision_3/Mision 3/Prim.gd").new()
+var prim = preload("res://Mision_5/Etapa_3/grafo/Prim.gd").new()
 const INF = 99999
 
 func _ready():
@@ -105,7 +105,7 @@ func preparar_estaciones_y_conexiones():
 	# --- INSTANCIAR ESTACIONES ---
 	for i in range(cantidad_estaciones):
 		var pos = posiciones[i]
-		var esta = preload("res://Mision_3/Mision 3/scenes/estacion.tscn").instantiate()
+		var esta = preload("res://Mision_5/Etapa_3/grafo/scenes/estacion.tscn").instantiate()
 		esta.nombre = "Estacion_%d" % i
 		esta.posicion = pos
 		$EstacionContainer.add_child(esta)
@@ -131,7 +131,7 @@ func preparar_estaciones_y_conexiones():
 		grafo[d].append([o, cost])
 	# --- Dibuja conexiones posibles ---
 	for a in todas_aristas:
-		var conn = preload("res://Mision_3/Mision 3/scenes/conexion.tscn").instantiate()
+		var conn = preload("res://Mision_5/Etapa_3/grafo/scenes/conexion.tscn").instantiate()
 		conn.inicializar(estaciones[a["origen"]], estaciones[a["destino"]], a["costo"])
 		conn.modulate = Color(0.8,0.8,0.8,0.5)
 		$ConexionContainer.add_child(conn)
@@ -185,11 +185,9 @@ func _on_BotonConfirmar_pressed():
 
 	# Comparación actual: ¿las conexiones del jugador son las mismas que el MST?
 	if _es_ganador(mst):
-		$"../UI/GanasteLabel".visible = true
-		$"../UI/PerdisteLabel".visible = false
+		SceneTransitions.change_scene_to_file("res://Mision_5/Etapa_3/grafo/scenes/winner.tscn")
 	else:
-		$"../UI/GanasteLabel".visible = false
-		$"../UI/PerdisteLabel".visible = true
+		SceneTransitions.change_scene_to_file("res://Mision_5/Etapa_3/grafo/scenes/loser.tscn")
 
 func _es_ganador(mst: Array) -> bool:
 	var jugador_set = []
