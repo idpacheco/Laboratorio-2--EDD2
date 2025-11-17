@@ -91,24 +91,81 @@ func create_edge(from_name: String, to_name: String, cap: int):
 	edges_container.add_child(edge)
 	edges.append(edge)
 
-# 👆 El jugador hace clic en nodos
+
+
+# Buscar arista en cualquier sentido (devuelve la arista y un flag si está en sentido inverso)
+# Si existe de from->to devuelve [edge, false], si existe solo to->from devuelve [edge, true]
+func get_edge_any_direction(a: String, b: String):
+	for e in edges:
+		if e.from_node.node_name == a and e.to_node.node_name == b:
+			return [e, false]
+		if e.from_node.node_name == b and e.to_node.node_name == a:
+			return [e, true]
+	return [null, false]
+
+
+# Manejo visual/errores cuando el jugador selecciona en dirección errada
+func handle_wrong_direction(edge: Node):
+	errores_jugador += 1
+	log_mensj("❌ Selección inválida: dirección equivocada en arista %s -> %s" % [edge.from_node.node_name, edge.to_node.node_name])
+	# resalta la arista equivocada momentáneamente
+	# llamar con await para que espere el flash; si no quieres pausar, quita el await
+	await edge.flash_error()
+	# limpia selección actual
+	selected_path.clear()
+	for n in nodes.values():
+		n.set_selected(false)
+
+
 func _on_node_clicked(node_name: String):
+	# Si el jugador no ha empezado y el nodo no es la fuente, forzar inicio en S
 	if selected_path.is_empty() and not nodes[node_name].is_source:
 		log_mensj("Debes empezar desde la fuente (S).")
 		return
-		# Quita selección de todos
+
+	# Quita selección previa visual
 	for n in nodes.values():
 		n.set_selected(false)
-	# Pone azul el nodo clickeado
-	nodes[node_name].set_selected(true)
-	
-	selected_path.append(node_name)
-	log_info("Camino actual: " + str(selected_path))
 
-	if nodes[node_name].is_sink:
-		apply_flow_to_path()
-	
-	
+	# Si es el primer nodo en el camino
+	if selected_path.is_empty():
+		nodes[node_name].set_selected(true)
+		selected_path.append(node_name)
+		log_info("Camino actual: " + str(selected_path))
+		return
+
+	# Si ya hay un nodo seleccionado, comprobar que la nueva selección sea válida en sentido directed
+	var last = selected_path[selected_path.size() - 1]
+
+	# chequeo rápido: ¿existe una arista last -> node_name?
+	var direct_edge = get_edge_between(last, node_name)
+	if direct_edge != null:
+		# OK, dirección válida — agregamos al camino
+		nodes[node_name].set_selected(true)
+		selected_path.append(node_name)
+		log_info("Camino actual: " + str(selected_path))
+		# si llegamos al sumidero aplicamos flujo
+		if nodes[node_name].is_sink:
+			apply_flow_to_path()
+		return
+
+	# Si no hay arista en sentido correcto, ver si existe en sentido contrario (error lógico)
+	var pair = get_edge_any_direction(last, node_name)
+	var any_edge = pair[0]
+	var is_inverted = pair[1]
+	if any_edge != null and is_inverted:
+		# Existe arista pero en sentido inverso -> cuenta como error lógico
+		await handle_wrong_direction(any_edge)
+		return
+
+	# Si no existe arista en ningún sentido
+	if any_edge == null:
+		errores_jugador += 1
+		log_mensj("❌ No hay arista entre %s y %s." % [last, node_name])
+		selected_path.clear()
+		for n in nodes.values():
+			n.set_selected(false)
+		return
 # 🚰 Aplicar flujo al camino seleccionado
 func apply_flow_to_path():
 	if selected_path.size() < 2:
