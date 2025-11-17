@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ycbt5a7c7ht"]
+
+[ext_resource type="Texture2D" uid="uid://bbwtv42pgbubt" path="res://icon.svg" id="1_eplvg"]
+
+[node name="Horse" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15429688, 0.13867188)
+texture = ExtResource("1_eplvg")

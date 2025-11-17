@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv0bheldlte6r"]
+
+[ext_resource type="Script" uid="uid://c8ewje1e4bq0c" path="res://Mision_2/Scene/new_script.gd" id="1_44ykp"]
+[ext_resource type="PackedScene" uid="uid://5ycbt5a7c7ht" path="res://Mision_2/Scene/horse.tscn" id="2_wmcp0"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_44ykp")
+
+[node name="Graph" type="Node2D" parent="."]
+
+[node name="Horses" type="Node2D" parent="."]
+
+[node name="Horse0" parent="Horses" instance=ExtResource("2_wmcp0")]
+
+[node name="Horse2" parent="Horses" instance=ExtResource("2_wmcp0")]
+
+[node name="Horse3" parent="Horses" instance=ExtResource("2_wmcp0")]
+
+[node name="Horse4" parent="Horses" instance=ExtResource("2_wmcp0")]
+
+[node name="Horse1" parent="Horses" instance=ExtResource("2_wmcp0")]
+
+[node name="CanvasLayer" type="Node" parent="."]
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
+offset_left = 26.0
+offset_top = 211.0
+offset_right = 95.0
+offset_bottom = 238.0
+
+[node name="ResetButton" type="Button" parent="CanvasLayer"]
+offset_left = 205.0
+offset_top = 211.0
+offset_right = 277.0
+offset_bottom = 235.0

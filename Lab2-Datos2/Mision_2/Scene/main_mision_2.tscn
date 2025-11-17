@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://yhsqv10thx4w"]
+
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_5/Etapa_3/grafo/assets/background.png" id="1_ckq28"]
+[ext_resource type="Texture2D" uid="uid://cf8l6frvtth45" path="res://Mision_5/Etapa_3/grafo/assets/box.png" id="2_e4n0u"]
+[ext_resource type="PackedScene" uid="uid://dv0bheldlte6r" path="res://Mision_2/Scene/node_2d.tscn" id="3_e4n0u"]
+
+[node name="main_mision_2" type="Node2D"]
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 640.0
+offset_bottom = 356.0
+texture = ExtResource("1_ckq28")
+expand_mode = 1
+
+[node name="Box_" type="TextureRect" parent="."]
+offset_left = 75.0
+offset_top = 36.0
+offset_right = 568.0
+offset_bottom = 287.0
+texture = ExtResource("2_e4n0u")
+expand_mode = 1
+
+[node name="Main" parent="." instance=ExtResource("3_e4n0u")]
+
+[node name="StartButton" parent="Main/CanvasLayer" index="0"]
+offset_left = 152.0
+offset_top = 310.0
+offset_right = 221.0
+offset_bottom = 337.0
+
+[node name="ResetButton" parent="Main/CanvasLayer" index="1"]
+offset_left = 441.0
+offset_top = 311.0
+offset_right = 513.0
+offset_bottom = 335.0
+
+[editable path="Main"]
