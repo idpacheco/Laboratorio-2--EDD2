@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6xt1pam4caki"]
+
+[ext_resource type="Script" uid="uid://dbi2q2bj2e5db" path="res://minijuego/scripts/bird.gd" id="1_jmxwj"]
+[ext_resource type="Texture2D" uid="uid://8mncyi6en5s7" path="res://minijuego/assets/data_packet.png" id="2_55sc7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0hppq"]
+radius = 18.0
+height = 52.0
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_jmxwj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.162757, 0.167832)
+texture = ExtResource("2_55sc7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0hppq")

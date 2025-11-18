@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://snrvq7jkapgf"]
+
+[ext_resource type="Script" uid="uid://b4ljm34cfq2lf" path="res://Mision_5/Etapa_1/minijuego/scripts/game_over.gd" id="1_36epf"]
+[ext_resource type="Texture2D" uid="uid://cq3jbfpta3ui7" path="res://Mision_5/Etapa_1/minijuego/assets/background.png" id="2_fkaef"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_5/Etapa_1/minijuego/assets/Buttons/Play_1.png" id="2_vqxy7"]
+[ext_resource type="Texture2D" uid="uid://g7h1dgyrbd" path="res://Mision_5/Etapa_1/minijuego/assets/lose.png" id="3_k3y54"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_5/Etapa_1/minijuego/assets/Buttons/Play_2.png" id="3_yw62g"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_5/Etapa_1/minijuego/assets/Buttons/Play_3.png" id="4_fkaef"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_36epf")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 637.0
+offset_bottom = 358.0
+texture = ExtResource("2_fkaef")
+expand_mode = 1
+
+[node name="gameover" type="TextureRect" parent="."]
+offset_left = 81.0
+offset_top = 141.0
+offset_right = 536.0
+offset_bottom = 244.0
+texture = ExtResource("3_k3y54")
+expand_mode = 1
+
+[node name="RestartButton" type="TextureButton" parent="."]
+offset_left = 245.0
+offset_top = 275.0
+offset_right = 373.0
+offset_bottom = 312.0
+texture_normal = ExtResource("2_vqxy7")
+texture_pressed = ExtResource("3_yw62g")
+texture_hover = ExtResource("4_fkaef")
+stretch_mode = 0
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

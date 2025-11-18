@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgd28mmybndtq"]
+
+[ext_resource type="Script" uid="uid://h6pgv1a3bo5p" path="res://Level1/scripts/validation_node.gd" id="1_xwijc"]
+
+[node name="ValidationNode" type="Control"]
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_xwijc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)

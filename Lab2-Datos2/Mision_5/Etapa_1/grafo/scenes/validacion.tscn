@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://cps2lcok54gml"]
+
+[ext_resource type="Texture2D" uid="uid://d1aqrktigl3e" path="res://Mision_5/Etapa_1/grafo/Assets/validacion.png" id="1_1csyf"]
+[ext_resource type="Script" uid="uid://c5abu6o8bkv5e" path="res://Mision_5/Etapa_1/grafo/scripts/validacion.gd" id="1_s58yu"]
+[ext_resource type="Texture2D" uid="uid://d3h7ak2koequy" path="res://Mision_5/Etapa_1/grafo/Assets/box.png" id="2_s58yu"]
+[ext_resource type="Texture2D" uid="uid://b4fwpj1x8n0oh" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/connect_1.png" id="4_x8ujc"]
+[ext_resource type="Texture2D" uid="uid://dlf4b3pjisv6o" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/connect_2.png" id="5_yu8tn"]
+[ext_resource type="Texture2D" uid="uid://bkq1bot03r1ex" path="res://Mision_5/Etapa_1/grafo/Assets/win.png" id="6_kmxiv"]
+[ext_resource type="Texture2D" uid="uid://ghaccgyqwrnb" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_1.png" id="7_gwb0i"]
+[ext_resource type="Texture2D" uid="uid://g6bfik6rfm3l" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/win_2.png" id="8_yuqd1"]
+[ext_resource type="Texture2D" uid="uid://bxsg7uhmosmi" path="res://Mision_5/Etapa_1/grafo/Assets/lose.png" id="9_htreh"]
+[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/back_1.png" id="10_c3jw2"]
+[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/back_2.png" id="11_io723"]
+
+[node name="Validacion" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s58yu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_1csyf")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 108.0
+offset_right = 554.0
+offset_bottom = 337.0
+texture = ExtResource("2_s58yu")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NodesContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(128, 80)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 170.0
+offset_right = 390.0
+offset_bottom = 298.0
+columns = 3
+
+[node name="ButtonConfirm" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 308.0
+offset_right = 63.0
+offset_bottom = 338.0
+texture_normal = ExtResource("4_x8ujc")
+texture_pressed = ExtResource("5_yu8tn")
+stretch_mode = 0
+
+[node name="LabelFeedback" type="Label" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 109.0
+offset_right = 82.0
+offset_bottom = 132.0
+
+[node name="win" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 109.0
+offset_right = 555.0
+offset_bottom = 262.0
+texture = ExtResource("6_kmxiv")
+expand_mode = 1
+
+[node name="win" type="TextureButton" parent="win"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 107.0
+offset_right = 250.0
+offset_bottom = 147.0
+texture_normal = ExtResource("7_gwb0i")
+texture_pressed = ExtResource("8_yuqd1")
+stretch_mode = 0
+
+[node name="lose" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 112.0
+offset_right = 562.0
+offset_bottom = 257.0
+texture = ExtResource("9_htreh")
+expand_mode = 1
+
+[node name="TryAgain" type="TextureButton" parent="lose"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 94.0
+offset_right = 237.0
+offset_bottom = 134.0
+texture_normal = ExtResource("10_c3jw2")
+texture_pressed = ExtResource("11_io723")
+stretch_mode = 0
+
+[connection signal="pressed" from="win/win" to="." method="_on_win_pressed"]
+[connection signal="pressed" from="lose/TryAgain" to="." method="_on_try_again_pressed"]

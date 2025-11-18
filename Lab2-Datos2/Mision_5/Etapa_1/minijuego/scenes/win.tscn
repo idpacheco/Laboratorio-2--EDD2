@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://w0ryhurg1ulo"]
+
+[ext_resource type="Script" uid="uid://br3b2j3uoy768" path="res://Mision_5/Etapa_1/minijuego/scripts/win.gd" id="1_17kch"]
+[ext_resource type="Texture2D" uid="uid://cq3jbfpta3ui7" path="res://Mision_5/Etapa_1/minijuego/assets/background.png" id="1_kwhgb"]
+[ext_resource type="Texture2D" uid="uid://xncxy2fv4f7q" path="res://Mision_5/Etapa_1/minijuego/assets/win.png" id="2_wvkc4"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_5/Etapa_1/minijuego/assets/Buttons/Continue_1.png" id="4_olc2d"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_5/Etapa_1/minijuego/assets/Buttons/Continue_2.png" id="5_gux8t"]
+
+[node name="Win" type="CanvasLayer"]
+script = ExtResource("1_17kch")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 637.0
+offset_bottom = 358.0
+texture = ExtResource("1_kwhgb")
+expand_mode = 1
+
+[node name="win" type="TextureRect" parent="."]
+offset_left = 83.0
+offset_top = 126.0
+offset_right = 538.0
+offset_bottom = 229.0
+texture = ExtResource("2_wvkc4")
+expand_mode = 1
+
+[node name="continue" type="TextureButton" parent="win"]
+offset_left = 175.0
+offset_top = 124.0
+offset_right = 277.0
+offset_bottom = 164.0
+texture_normal = ExtResource("4_olc2d")
+texture_pressed = ExtResource("5_gux8t")
+
+[connection signal="pressed" from="win/continue" to="." method="_on_continue_pressed"]
