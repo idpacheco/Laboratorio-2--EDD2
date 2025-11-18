@@ -217,7 +217,7 @@ func check_end_game():
 	var next_path = find_augmenting_path("S", "T")
 
 	if next_path.is_empty():
-		var ford_result = ford_fulkerson()
+		var ford_result = await ford_fulkerson(false)
 		var duracion = (Time.get_ticks_msec() - tiempo_inicio) / 1000.0
 
 		mensaje_final.text = " Flujo jugador: %d | Flujo máximo: %d\n Errores: %d" % [total_flow, ford_result, errores_jugador]
@@ -236,7 +236,7 @@ func check_end_game():
 
 		print("🏁 Juego terminado.")
 		if errores_jugador > 0:
-			log_mensj("⚠️ Demasiados errores. NEMESIS casi corrompe la red...")
+			log_mensj("⚠ Demasiados errores. NEMESIS casi corrompe la red...")
 		else:
 			log_mensj("✅ Flujo seguro establecido. NEMESIS ha sido aislado.")
 		# detener
@@ -271,8 +271,7 @@ func run_player_flow():
 
 
 #  Ford-Fulkerson 
-
-func ford_fulkerson() -> int:
+func ford_fulkerson(show_paths := false) -> int:
 	var g = {}
 	for e in edges:
 		if not g.has(e.from_node.node_name):
@@ -289,19 +288,28 @@ func ford_fulkerson() -> int:
 		if not dfs(g, source, sink, visited, parent):
 			break
 
-		var path_flow = INF
+		var path = []
 		var v = sink
+		var bottleneck = INF
 		while v != source:
 			var u = parent[v]
-			path_flow = min(path_flow, g[u][v])
+			path.insert(0, u)
+			bottleneck = min(bottleneck, g[u][v])
 			v = u
+		path.append(sink)
 
-		max_flow += path_flow
+		max_flow += bottleneck
 		v = sink
 		while v != source:
 			var u = parent[v]
-			g[u][v] -= path_flow
+			g[u][v] -= bottleneck
 			v = u
+
+		
+		if show_paths:
+			log_mensj2("Camino aumentante encontrado: " + str(path) + " (Flujo enviado " + str(bottleneck) + ")")
+			apply_auto_flow(path)
+			await get_tree().create_timer(1.0).timeout
 
 	return max_flow
 
@@ -319,25 +327,25 @@ func dfs(g, u, sink, visited, parent) -> bool:
 # Mostrar algoritmo visual
 func show_algorithm_mode():
 	$Panel/RichTextLabel3.clear()
-	log_mensj("🔍 Visualizando Ford-Fulkerson...")
+	log_mensj(" Visualizando Ford-Fulkerson...")
 	saved_player_flows.clear()
 	for e in edges:
 		saved_player_flows[e] = e.flow
 
+	
 	for e in edges:
 		e.flow = 0
 		e.update_edge()
 
 	await get_tree().create_timer(0.5).timeout
-	var path = find_augmenting_path("S", "T")
 
-	while path.size() > 0 and not cancel_algorithm:
-		log_info("Camino:"+ str (path))
-		apply_auto_flow(path)
-		await get_tree().create_timer(1.0).timeout
-		path = find_augmenting_path("S", "T")
-
+	
+	await ford_fulkerson(true)
+	
+	
 	log_mensj("✅ Visualización completada.")
+
+	
 	for e in saved_player_flows.keys():
 		e.flow = saved_player_flows[e]
 		e.update_edge()
