@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv0bheldlte6r"]
 
-[ext_resource type="Script" uid="uid://c8ewje1e4bq0c" path="res://Mision_2/Scene/new_script.gd" id="1_44ykp"]
+[ext_resource type="Script" uid="uid://c8ewje1e4bq0c" path="res://Mision_2/Scripts/new_script.gd" id="1_44ykp"]
 [ext_resource type="PackedScene" uid="uid://5ycbt5a7c7ht" path="res://Mision_2/Scene/horse.tscn" id="2_wmcp0"]
 
 [node name="Main" type="Node2D"]

@@ -1,9 +1,10 @@
 extends Node2D
 
 # ---------- CONFIG ----------
+var state = 5
 const NODE_COUNT: int = 10
 const NODE_RADIUS: int = 6
-const HORSE_SPEED: float = 200.0  # velocidad base de todos los caballos
+const HORSE_SPEED: float = 200.0  
 const MIN_NODE_DISTANCE: float = 60.0
 const HORSE_COLORS: Array = [
 	Color(1, 0, 0),
@@ -14,6 +15,7 @@ const HORSE_COLORS: Array = [
 ]
 const START_COLOR: Color = Color(1, 0.5, 0)
 const END_COLOR: Color = Color(0, 1, 1)
+@onready var controler: Node2D = $"."
 
 # ---------- ESTADO ----------
 var nodes: Array[Vector2] = []
@@ -31,7 +33,7 @@ var font: FontFile
 func _ready():
 	randomize()
 	# Asegúrate de que este archivo de fuente exista en tu proyecto.
-	font = preload("res://Mision_2/Scene/Poco.ttf") 
+	font = preload("res://Mision_2/Assets/Poco.ttf") 
 
 	asegurar_estructura_basica()
 	horses = $Horses.get_children()
@@ -188,7 +190,6 @@ func _draw():
 		if path.size() < 2:
 			continue
 		var col = HORSE_COLORS[i]
-		var offset = path_offsets[i % path_offsets.size()]
 		for k in range(path.size() - 1):
 			var start_pos = nodes[path[k]]
 			var end_pos = nodes[path[k+1]] 
@@ -250,108 +251,74 @@ func assign_paths():
 	horse_progress.clear()
 	var start = 0
 	var goal = 1
-	
+
+	# Para cada caballo
 	for i in range(5):
 		var attempts = 0
-		var max_attempts = 20 # Límite para evitar bucles infinitos en grafos pequeños
-		var found_unique_path = false
-		var current_path = []
-		
-		# 1. Crear una copia profunda del grafo base para aplicar penalizaciones persistentes
+		var max_attempts = 20
+		var found_path = false
+		var path = []
+
+		# Copia del grafo para penalizar aristas usadas
 		var temp_edges = {}
 		for key in edges.keys():
 			temp_edges[key] = []
 			for e in edges[key]:
-				# Convertir el peso a float para la penalización adaptativa
 				var edge_copy = e.duplicate()
-				edge_copy["weight"] = float(edge_copy["weight"]) 
-				temp_edges[key].append(edge_copy) 
-		
-		# Bucle para encontrar una ruta única mediante reintentos y penalizaciones
-		while attempts < max_attempts and not found_unique_path:
+				edge_copy["weight"] = float(edge_copy["weight"])
+				temp_edges[key].append(edge_copy)
+
+		while attempts < max_attempts and not found_path:
 			attempts += 1
-			
-			# 2. Aplicar aleatoriedad a los pesos en cada intento (la parte 'random')
-			var current_attempt_edges = {}
+
+			# Mezclar los pesos para aleatoriedad
+			var current_edges = {}
 			for key in temp_edges.keys():
-				current_attempt_edges[key] = []
+				current_edges[key] = []
 				for e in temp_edges[key]:
-					var new_weight = e["weight"]
-					
-					# Aplicar aleatoriedad general (30% de chance de costo 1.3x a 2.0x)
+					var w = e["weight"]
 					if randf() < 0.3:
-						new_weight *= randf_range(1.3, 2.0)
-						
-					current_attempt_edges[key].append({"to": e["to"], "weight": new_weight})
+						w *= randf_range(1.3, 2.0)
+					current_edges[key].append({"to": e["to"], "weight": w})
 
-			# 3. Calcular la ruta
-			current_path = dijkstra_custom(start, goal, current_attempt_edges)
-			
-			if current_path.size() < 2:
-				break # No se encontró camino, salir del bucle de unicidad
-				
-			# 4. Verificar unicidad
-			found_unique_path = true
-			for existing_path in paths:
-				# Si la ruta es idéntica a una ya existente:
-				if existing_path.size() > 0 and existing_path == current_path:
-					found_unique_path = false
+			# Calcular ruta
+			path = dijkstra_custom(start, goal, current_edges)
+
+			if path.size() < 2:
+				break
+
+			# Comprobar unicidad
+			found_path = true
+			for existing in paths:
+				if existing == path:
+					found_path = false
 					break
-			
-			if not found_unique_path:
-				# 5. Penalizar: Si es un duplicado, aplicar una penalización fuerte a un segmento aleatorio
-				
-				# Encontrar un nodo intermedio aleatorio para penalizar la arista de entrada
-				var penalizable_nodes = []
-				var source_node_idx
-				var target_node_idx
-				for k in range(1, current_path.size() - 1): 
-					penalizable_nodes.append(current_path[k])
-				
-				if penalizable_nodes.is_empty() and current_path.size() == 2:
-					# Caso simple: Start -> Goal (solo 1 arista). Penalizar esa arista.
-					target_node_idx = current_path[1]
-					source_node_idx = current_path[0]
-				elif not penalizable_nodes.is_empty():
-					# Caso general: Penalizar la arista que entra a un nodo intermedio aleatorio
-					target_node_idx = penalizable_nodes[randi() % penalizable_nodes.size()]
-					var index_in_path = current_path.find(target_node_idx)
-					source_node_idx = current_path[index_in_path - 1]
-				else:
-					# No hay nodos intermedios ni arista Start->Goal (debería ser imposible si size >= 2)
-					continue 
 
-				# Aplicar penalización fuerte (multiplicar por un factor alto) en el grafo base temporal
-				# Penalizar source -> target
-				for e in temp_edges[source_node_idx]:
-					if e["to"] == target_node_idx:
-						# Aumentar el peso significativamente (5x a 10x)
-						e["weight"] = e["weight"] * randf_range(5.0, 10.0) 
-						break
-				
-				# Penalizar target -> source
-				for e in temp_edges[target_node_idx]:
-					if e["to"] == source_node_idx:
-						e["weight"] = e["weight"] * randf_range(5.0, 10.0)
-						break
-						
-		# 6. Registrar el resultado
-		if current_path.size() < 2 or not found_unique_path:
-			print("⚠️ Advertencia: No se pudo encontrar un camino único y válido para el caballo ", i + 1, " después de ", attempts, " intentos.")
+			# Penalizar aristas usadas si el camino es duplicado
+			if not found_path:
+				var mid_nodes = []
+				for k in range(1, path.size()-1):
+					mid_nodes.append(path[k])
+				if not mid_nodes.is_empty():
+					var t = mid_nodes[randi() % mid_nodes.size()]
+					var s = path[path.find(t)-1]
+					for e in temp_edges[s]:
+						if e["to"] == t:
+							e["weight"] *= randf_range(5.0, 10.0)
+					for e in temp_edges[t]:
+						if e["to"] == s:
+							e["weight"] *= randf_range(5.0, 10.0)
+
+		# Guardar ruta y progreso
+		if path.size() < 2 or not found_path:
 			paths.append([])
 			horse_progress.append(0)
-		else:
-			paths.append(current_path)
-			horse_progress.append(0)
-
-	# Colocar caballos en nodo inicial
-	for i in range(5):
-		# Revisa si la ruta existe y no está vacía antes de asignar posición
-		if i < paths.size() and not paths[i].is_empty():
-			horses[i].position = nodes[start]
-		else:
-			# Caballo sin ruta válida, colocar fuera de pantalla
 			horses[i].position = Vector2(-1000,-1000)
+		else:
+			paths.append(path)
+			horse_progress.append(0)
+			horses[i].position = nodes[start]
+
 
 # ---------- BOTONES ----------
 func start_race():
@@ -418,4 +385,25 @@ func declare_winner(index: int):
 	if race_finished:
 		return
 	race_finished = true  # solo marcamos que ya hay ganador
-	print("El caballo ganador es el #%d" % (index + 1))
+	print("El caballo ganador es el #%d" % (index))
+	if controler.state == index:
+		print("ganaste")
+	elif controler.state == 5:
+		print("No seleccionaate ningun competidor")
+	else:
+		print("perdiste ",controler.state)
+
+func _on_blue_pressed() -> void:
+	state = 1
+
+func _on_red_pressed() -> void:
+	state = 0
+
+func _on_green_pressed() -> void:
+	state = 2
+
+func _on_yellow_pressed() -> void:
+	state = 3
+
+func _on_magenta_pressed() -> void:
+	state = 4

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cee4hvd5i160o"]
+
+[ext_resource type="Script" uid="uid://cdmftxfk6soaq" path="res://Mision_2/Scripts/tail.gd" id="1_uunct"]
+[ext_resource type="Texture2D" uid="uid://c8xrjioauaaer" path="res://Mision_2/Assets/snake.p8.png" id="2_n0yfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kgsg8"]
+size = Vector2(4, 4)
+
+[node name="Tail" type="Area2D"]
+scale = Vector2(12.52058, 12.509898)
+script = ExtResource("1_uunct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(1.3336759, 1.0494746)
+texture = ExtResource("2_n0yfy")
+hframes = 50
+vframes = 50
+frame = 731
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kgsg8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

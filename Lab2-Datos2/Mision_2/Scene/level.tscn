@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqka2it767xcw"]
+
+[ext_resource type="Script" uid="uid://d3njgm6206edx" path="res://Mision_2/Scripts/level.gd" id="1_4hnep"]
+[ext_resource type="PackedScene" uid="uid://cb2olkturersg" path="res://Mision_2/Scene/snake.tscn" id="2_vqupu"]
+[ext_resource type="Texture2D" uid="uid://unqdd6qk18lc" path="res://Mision_5/Etapa_3/grafo/assets/background.png" id="3_vqupu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vqupu"]
+normal = Vector2(0, 1)
+distance = 1.0
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_4hnep")
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = -16.0
+offset_top = -38.0
+offset_right = 641.2016
+offset_bottom = 363.0
+scale = Vector2(1.0027364, 1)
+texture = ExtResource("3_vqupu")
+expand_mode = 1
+
+[node name="Score" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Snake" parent="." instance=ExtResource("2_vqupu")]
+position = Vector2(306, 175)
+
+[node name="bordes" type="Node" parent="."]
+
+[node name="borde1" type="Area2D" parent="bordes"]
+
+[node name="borde_arr" type="CollisionShape2D" parent="bordes/borde1"]
+shape = SubResource("WorldBoundaryShape2D_vqupu")
+
+[node name="borde3" type="Area2D" parent="bordes"]
+
+[node name="borde_izq" type="CollisionShape2D" parent="bordes/borde3"]
+position = Vector2(1, 115)
+rotation = -1.5632207
+shape = SubResource("WorldBoundaryShape2D_vqupu")
+
+[node name="borde2" type="Area2D" parent="bordes"]
+
+[node name="borde_der" type="CollisionShape2D" parent="bordes/borde2"]
+position = Vector2(641, 144)
+rotation = -4.678877
+shape = SubResource("WorldBoundaryShape2D_vqupu")
+
+[node name="borde4" type="Area2D" parent="bordes"]
+
+[node name="borde_ab" type="CollisionShape2D" parent="bordes/borde4"]
+position = Vector2(-2, 360)
+rotation = -3.1305254
+shape = SubResource("WorldBoundaryShape2D_vqupu")

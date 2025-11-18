@@ -25,15 +25,56 @@ expand_mode = 1
 [node name="Main" parent="." instance=ExtResource("3_e4n0u")]
 
 [node name="StartButton" parent="Main/CanvasLayer" index="0"]
-offset_left = 152.0
-offset_top = 310.0
-offset_right = 221.0
-offset_bottom = 337.0
+offset_left = 291.0
+offset_top = 329.0
+offset_right = 346.0
+offset_bottom = 351.0
 
 [node name="ResetButton" parent="Main/CanvasLayer" index="1"]
-offset_left = 441.0
-offset_top = 311.0
-offset_right = 513.0
-offset_bottom = 335.0
+offset_left = 586.0
+offset_top = 46.0
+offset_right = 623.0
+offset_bottom = 70.0
+
+[node name="Blue" type="Button" parent="Main/CanvasLayer" index="2"]
+modulate = Color(0, 1, 1, 1)
+offset_left = 88.0
+offset_top = 289.0
+offset_right = 148.0
+offset_bottom = 320.0
+
+[node name="Red" type="Button" parent="Main/CanvasLayer" index="3"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 178.0
+offset_top = 286.0
+offset_right = 238.0
+offset_bottom = 317.0
+
+[node name="Green" type="Button" parent="Main/CanvasLayer" index="4"]
+modulate = Color(0, 1, 0, 1)
+offset_left = 286.0
+offset_top = 290.0
+offset_right = 346.0
+offset_bottom = 321.0
+
+[node name="Yellow" type="Button" parent="Main/CanvasLayer" index="5"]
+modulate = Color(1, 1, 0, 1)
+offset_left = 393.0
+offset_top = 290.0
+offset_right = 453.0
+offset_bottom = 321.0
+
+[node name="Magenta" type="Button" parent="Main/CanvasLayer" index="6"]
+modulate = Color(1, 0, 1, 1)
+offset_left = 488.0
+offset_top = 289.0
+offset_right = 548.0
+offset_bottom = 320.0
+
+[connection signal="pressed" from="Main/CanvasLayer/Blue" to="Main" method="_on_blue_pressed"]
+[connection signal="pressed" from="Main/CanvasLayer/Red" to="Main" method="_on_red_pressed"]
+[connection signal="pressed" from="Main/CanvasLayer/Green" to="Main" method="_on_green_pressed"]
+[connection signal="pressed" from="Main/CanvasLayer/Yellow" to="Main" method="_on_yellow_pressed"]
+[connection signal="pressed" from="Main/CanvasLayer/Magenta" to="Main" method="_on_magenta_pressed"]
 
 [editable path="Main"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://chmk8yww17u3b"]
+
+[ext_resource type="Script" uid="uid://s4jnkn68rxrp" path="res://Mision_2/Scripts/virus.gd" id="1_wtynx"]
+[ext_resource type="Texture2D" uid="uid://dnpn2io8y7ola" path="res://Mision_2/Assets/Malware2.png" id="2_ydsfk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loipe"]
+radius = 49.09175
+
+[node name="Virus" type="Area2D"]
+scale = Vector2(0.37670866, 0.42248642)
+script = ExtResource("1_wtynx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_loipe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.9999771, 2.0000076)
+scale = Vector2(0.32214764, 0.34615386)
+texture = ExtResource("2_ydsfk")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
