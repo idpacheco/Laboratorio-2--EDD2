@@ -1,9 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://5ycbt5a7c7ht"]
 
-[ext_resource type="Texture2D" uid="uid://bbwtv42pgbubt" path="res://icon.svg" id="1_eplvg"]
+[ext_resource type="Texture2D" uid="uid://dnpn2io8y7ola" path="res://Mision_2/Assets/Malware2.png" id="1_gs1jl"]
 
 [node name="Horse" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.15429688, 0.13867188)
-texture = ExtResource("1_eplvg")
+position = Vector2(-1, -1)
+scale = Vector2(0.090571254, 0.10779747)
+texture = ExtResource("1_gs1jl")

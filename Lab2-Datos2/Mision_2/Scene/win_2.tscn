@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://d05kwgk8yw1hm"]
+
+[ext_resource type="Script" uid="uid://bk3wma81sy8iv" path="res://Mision_2/Scripts/win_2.gd" id="1_eg0ny"]
+[ext_resource type="Texture2D" uid="uid://cypejt27gr6m8" path="res://Mision_4/Assets/background.png" id="2_1ayoy"]
+[ext_resource type="Texture2D" uid="uid://bf66ppurccm16" path="res://Mision_2/Assets/win2.png" id="3_3yaq5"]
+[ext_resource type="Texture2D" uid="uid://bw6aw6dtvebsk" path="res://Mision_4/Assets/Textures/Continue1.tres" id="4_7nphu"]
+[ext_resource type="Texture2D" uid="uid://kggj6gwbfed2" path="res://Mision_4/Assets/Textures/Continue2.tres" id="5_u0d7v"]
+[ext_resource type="Texture2D" uid="uid://kpowpe1x47af" path="res://Mision_4/Assets/Textures/Continue3.tres" id="6_3m16m"]
+
+[node name="win2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eg0ny")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_1ayoy")
+expand_mode = 1
+
+[node name="Text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 61.0
+offset_right = 507.0
+offset_bottom = 266.0
+texture = ExtResource("3_3yaq5")
+expand_mode = 1
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 238.00002
+offset_top = 288.0
+offset_right = 340.0
+offset_bottom = 321.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_7nphu")
+texture_pressed = ExtResource("5_u0d7v")
+texture_hover = ExtResource("6_3m16m")
+
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

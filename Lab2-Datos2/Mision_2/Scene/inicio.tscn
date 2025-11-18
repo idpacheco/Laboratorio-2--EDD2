@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c27kwon2jvtnh"]
+
+[ext_resource type="Script" uid="uid://fmyjsy408ew3" path="res://Mision_2/Scripts/inicio.gd" id="1_vgl2a"]
+[ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="2_xs2b0"]
+[ext_resource type="Texture2D" uid="uid://dq30728yenw0e" path="res://Mision_2/Assets/inicio.png" id="3_l20p6"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_1.png" id="4_nkf71"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_3.png" id="5_u8oxx"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_2.png" id="6_eoejj"]
+
+[node name="inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vgl2a")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 357.0
+texture = ExtResource("2_xs2b0")
+expand_mode = 1
+
+[node name="nombre" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 92.0
+offset_right = 497.0
+offset_bottom = 267.0
+texture = ExtResource("3_l20p6")
+expand_mode = 1
+
+[node name="play_to_contexto" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 218.0
+offset_right = 379.0
+offset_bottom = 251.0
+texture_normal = ExtResource("4_nkf71")
+texture_pressed = ExtResource("5_u8oxx")
+texture_hover = ExtResource("6_eoejj")
+
+[connection signal="pressed" from="play_to_contexto" to="." method="_on_play_to_contexto_pressed"]

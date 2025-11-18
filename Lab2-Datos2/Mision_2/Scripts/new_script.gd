@@ -388,6 +388,9 @@ func declare_winner(index: int):
 	print("El caballo ganador es el #%d" % (index))
 	if controler.state == index:
 		print("ganaste")
+		SceneTransitions.change_scene_to_file("res://Mision_2/Scene/win.tscn")
+		AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+		AudioManager.SFXPlayer.play()
 	elif controler.state == 5:
 		print("No seleccionaate ningun competidor")
 	else:

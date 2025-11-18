@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2idwdo661vhn"]
+
+[ext_resource type="Texture2D" uid="uid://dc5as2r7372h4" path="res://Mision_3/Minijuego_Mision3/assests/background.png" id="1_gw7f0"]
+[ext_resource type="Script" uid="uid://co8rqkcp7lv3t" path="res://Mision_2/Scripts/fase_1.gd" id="1_n55yt"]
+[ext_resource type="Texture2D" uid="uid://bh7i7ey10c2s0" path="res://Mision_2/Assets/fase1.png" id="2_n55yt"]
+[ext_resource type="Texture2D" uid="uid://blnx6vleo6van" path="res://Mision_3/Mision 3/assets/Buttons/Continue_1.png" id="3_oemqm"]
+[ext_resource type="Texture2D" uid="uid://uckimch6vdv5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Continue_3.png" id="4_dlseo"]
+[ext_resource type="Texture2D" uid="uid://db5m7nvcugngr" path="res://Mision_3/Mision 3/assets/Buttons/Continue_2.png" id="5_i0myt"]
+[ext_resource type="Texture2D" uid="uid://cjr2hujngw807" path="res://Mision_3/Mision 3/assets/Buttons/close_1.png" id="6_228qt"]
+[ext_resource type="Texture2D" uid="uid://dci0n5vauppmc" path="res://Mision_3/Mision 3/assets/Buttons/close_2.png" id="7_ymlww"]
+[ext_resource type="Texture2D" uid="uid://ctrl8rk2g1g2p" path="res://Mision_3/Mision 3/assets/Buttons/back_1.png" id="8_2sbfq"]
+[ext_resource type="Texture2D" uid="uid://dvsfcx047n78a" path="res://Mision_3/Mision 3/assets/Buttons/back_2.png" id="9_jqtjq"]
+
+[node name="fase_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n55yt")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 359.0
+texture = ExtResource("1_gw7f0")
+expand_mode = 1
+
+[node name="text" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 77.0
+offset_right = 486.0
+offset_bottom = 264.0
+texture = ExtResource("2_n55yt")
+expand_mode = 1
+
+[node name="next_to_img" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 285.0
+offset_right = 362.0
+offset_bottom = 318.0
+texture_normal = ExtResource("3_oemqm")
+texture_pressed = ExtResource("4_dlseo")
+texture_hover = ExtResource("5_i0myt")
+
+[node name="Skip" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 607.0
+offset_top = 10.0
+offset_right = 634.0
+offset_bottom = 35.0
+texture_normal = ExtResource("6_228qt")
+texture_pressed = ExtResource("7_ymlww")
+stretch_mode = 0
+
+[node name="bac_to_contexto" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 320.0
+offset_right = 43.0
+offset_bottom = 347.0
+texture_normal = ExtResource("8_2sbfq")
+texture_pressed = ExtResource("9_jqtjq")
+stretch_mode = 0
+
+[connection signal="pressed" from="next_to_img" to="." method="_on_next_to_img_pressed"]

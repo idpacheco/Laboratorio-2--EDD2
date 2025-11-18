@@ -7,6 +7,10 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	$Score.text = "Points: "+ str(score)
+	if score >= 200:
+		SceneTransitions.change_scene_to_file("res://Mision_2/Scene/win_2.tscn")
+		AudioManager.SFXPlayer.stream = preload("res://mainMenu/Assets/Audio/tf2-button-click-hover.mp3")
+		AudioManager.SFXPlayer.play()
 	
 func add_virus():
 	var instance = virus.instantiate()
@@ -14,6 +18,6 @@ func add_virus():
 	instance.connect("Gear_used", Callable(self, "spawn_new"))
 	add_child(instance)
 func spawn_new():
-	score+=5
+	score+=10
 	add_virus()
 	get_node("Snake").add_tail()

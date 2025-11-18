@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjl7qm578h4ff"]
+[gd_scene load_steps=6 format=3 uid="uid://ct508i72yrjoj"]
 
 [ext_resource type="Script" uid="uid://chykx56al48ie" path="res://Mision_5/Etapa_1/grafo/scripts/inicio_Etapa_1.gd" id="1_sdqap"]
-[ext_resource type="Texture2D" uid="uid://cuokmxs34g5uk" path="res://Mision_5/Etapa_1/grafo/Assets/inicio.png" id="2_bo8ys"]
-[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_1.png" id="3_x6cl0"]
-[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_2.png" id="4_jtegt"]
-[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_5/Etapa_3/grafo/assets/Buttons/Play_3.png" id="5_x8xeo"]
+[ext_resource type="Texture2D" uid="uid://cuokmxs34g5uk" path="res://Mision_1/Level1/Assets/inicio.png" id="2_bo8ys"]
+[ext_resource type="Texture2D" uid="uid://peif6igwxwy6" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Play_1.png" id="3_x6cl0"]
+[ext_resource type="Texture2D" uid="uid://surxwa3giy7e" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Play_2.png" id="4_jtegt"]
+[ext_resource type="Texture2D" uid="uid://c1v1rgprapni5" path="res://Mision_3/Minijuego_Mision3/assests/Buttons/Play_3.png" id="5_x8xeo"]
 
 [node name="InicioMision1" type="Node2D"]
 script = ExtResource("1_sdqap")

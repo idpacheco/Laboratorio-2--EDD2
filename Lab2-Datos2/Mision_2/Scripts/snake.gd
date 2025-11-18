@@ -5,12 +5,6 @@ var next_tail_dir = Vector2(1,0)
 var prev_dir = Vector2(1,0)
 @onready var tail = preload("res://Mision_2/Scene/tail.tscn")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_up"):
