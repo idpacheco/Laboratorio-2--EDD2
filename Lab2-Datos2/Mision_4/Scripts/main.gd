@@ -21,7 +21,7 @@ var edges = []
 var selected_path = []
 var total_flow = 0
 
-# ⏱️ Variables para control de tiempo y errores
+# Variables para control de tiempo y errores
 var errores_jugador = 0
 var tiempo_inicio = 0.0
 var tiempo_restante: float
@@ -38,7 +38,7 @@ func _ready():
 	for n in nodes.values():
 		n.node_clicked.connect(_on_node_clicked)
 		
-	game_timer.timeout.connect(_on_game_timer_timeout)  # ← CÓDIGO CORRECTO EN GODOT 4
+	game_timer.timeout.connect(_on_game_timer_timeout) 
 	tiempo_restante = tiempo_limite
 	game_timer.wait_time = tiempo_limite
 	tiempo_label.text = "Tiempo: %d s" % tiempo_restante
@@ -55,7 +55,7 @@ func _process(delta):
 	
 	tiempo_label.text = "Tiempo: %d s" % int(tiempo_restante)
 
-# 🧱 Crear el grafo base con capacidades aleatorias
+#  Crear el grafo con capacidades aleatorias
 func create_graph():
 	var s = create_node("S", Vector2(100, 300), true, false)
 	var a = create_node("A", Vector2(300, 200))
@@ -94,7 +94,6 @@ func create_edge(from_name: String, to_name: String, cap: int):
 
 
 # Buscar arista en cualquier sentido (devuelve la arista y un flag si está en sentido inverso)
-# Si existe de from->to devuelve [edge, false], si existe solo to->from devuelve [edge, true]
 func get_edge_any_direction(a: String, b: String):
 	for e in edges:
 		if e.from_node.node_name == a and e.to_node.node_name == b:
@@ -109,16 +108,15 @@ func handle_wrong_direction(edge: Node):
 	errores_jugador += 1
 	log_mensj("❌ Selección inválida: dirección equivocada en arista %s -> %s" % [edge.from_node.node_name, edge.to_node.node_name])
 	# resalta la arista equivocada momentáneamente
-	# llamar con await para que espere el flash; si no quieres pausar, quita el await
 	await edge.flash_error()
-	# limpia selección actual
+	# limpiar selección actual
 	selected_path.clear()
 	for n in nodes.values():
 		n.set_selected(false)
 
 
 func _on_node_clicked(node_name: String):
-	# Si el jugador no ha empezado y el nodo no es la fuente, forzar inicio en S
+	# Si el jugador no ha empezado y el nodo no es la fuente, indicar inicio en s
 	if selected_path.is_empty() and not nodes[node_name].is_source:
 		log_mensj("Debes empezar desde la fuente (S).")
 		return
@@ -136,11 +134,10 @@ func _on_node_clicked(node_name: String):
 
 	# Si ya hay un nodo seleccionado, comprobar que la nueva selección sea válida en sentido directed
 	var last = selected_path[selected_path.size() - 1]
-
-	# chequeo rápido: ¿existe una arista last -> node_name?
+	
 	var direct_edge = get_edge_between(last, node_name)
 	if direct_edge != null:
-		# OK, dirección válida — agregamos al camino
+		#  dirección válida se agrega el camino
 		nodes[node_name].set_selected(true)
 		selected_path.append(node_name)
 		log_info("Camino actual: " + str(selected_path))
@@ -149,12 +146,12 @@ func _on_node_clicked(node_name: String):
 			apply_flow_to_path()
 		return
 
-	# Si no hay arista en sentido correcto, ver si existe en sentido contrario (error lógico)
+	# Si no hay arista en sentido correcto, ver si existe en sentido contrario 
 	var pair = get_edge_any_direction(last, node_name)
 	var any_edge = pair[0]
 	var is_inverted = pair[1]
 	if any_edge != null and is_inverted:
-		# Existe arista pero en sentido inverso -> cuenta como error lógico
+		# Existe arista pero en sentido inverso 
 		await handle_wrong_direction(any_edge)
 		return
 
@@ -166,7 +163,8 @@ func _on_node_clicked(node_name: String):
 		for n in nodes.values():
 			n.set_selected(false)
 		return
-# 🚰 Aplicar flujo al camino seleccionado
+
+# Aplicar flujo al camino seleccionado
 func apply_flow_to_path():
 	if selected_path.size() < 2:
 		log_mensj("Camino incompleto.")
@@ -207,14 +205,14 @@ func apply_flow_to_path():
 	for n in nodes.values():
 		n.set_selected(false)
 
-# 🔍 Buscar arista
+#  Buscar arista
 func get_edge_between(from_name: String, to_name: String):
 	for e in edges:
 		if e.from_node.node_name == from_name and e.to_node.node_name == to_name:
 			return e
 	return null
 
-# 🚦 Fin del juego
+#  Fin del juego
 func check_end_game():
 	var next_path = find_augmenting_path("S", "T")
 
@@ -226,14 +224,14 @@ func check_end_game():
 		mensaje_final.visible = true
 
 		button_auto.visible = true
-				# 🔥 Mostrar el botón CONTINUE
+		
 		$Continue.visible = true
 		
-# Condición de victoria
+		# condiciones de victoria
 		jugador_gano = (
-		total_flow == ford_result   # Flujo perfecto
-		and errores_jugador == 0    # Cero errores
-		and tiempo_restante > 0     # Aún quedaba tiempo
+		total_flow == ford_result   # flujo perfecto
+		and errores_jugador == 0    # sin errores
+		and tiempo_restante > 0     # Tiempo
 		)
 
 		print("🏁 Juego terminado.")
@@ -241,14 +239,14 @@ func check_end_game():
 			log_mensj("⚠️ Demasiados errores. NEMESIS casi corrompe la red...")
 		else:
 			log_mensj("✅ Flujo seguro establecido. NEMESIS ha sido aislado.")
-		# ¡DETENER timer aquí!
+		# detener
 		game_timer.stop()
 	else:
-		log_mensj("➡️ Aún quedan caminos posibles. Sigue intentando.")
+		log_mensj(" Aún quedan caminos posibles. Sigue intentando.")
 
-# 🔄 Reiniciar
+
 func run_player_flow():
-	print("♻️ Reiniciando el juego...")
+	print(" Reiniciando el juego...")
 
 	total_flow = 0
 	selected_path.clear()
@@ -264,16 +262,16 @@ func run_player_flow():
 
 	print("✅ Grafo reiniciado. Puedes comenzar desde S.")
 
-	tiempo_restante = tiempo_limite  # ← REINICIA EL TIEMPO CADA VEZ
+	tiempo_restante = tiempo_limite  # REINICIA EL TIEMPO CADA VEZ
 	tiempo_label.text = "Tiempo: %d s" % tiempo_restante
 	if has_node("GameTimer"):
 		game_timer.stop()
 		game_timer.start()
-		print("🕒 Temporizador iniciado (60s).")
+		print("Temporizador iniciado (60s).")
 
-# ---------------------------------
-# 🧮 Ford-Fulkerson (copia segura)
-# ---------------------------------
+
+#  Ford-Fulkerson 
+
 func ford_fulkerson() -> int:
 	var g = {}
 	for e in edges:
@@ -344,9 +342,8 @@ func show_algorithm_mode():
 		e.flow = saved_player_flows[e]
 		e.update_edge()
 
-# ---------------------------------
-# 🔍 Búsqueda de camino y flujo auto
-# ---------------------------------
+#  Búsqueda de camino y flujo auto
+
 func find_augmenting_path(source: String, sink: String) -> Array:
 	var queue = [source]
 	var parent = {}
@@ -393,23 +390,23 @@ func log_info(text):
 	print(text)
 	var label2= $Panel/RichTextLabel
 	$Panel/RichTextLabel.append_text(text + "\n")
-	label2.clear()               # 🧹 limpia mensajes anteriores
-	label2.append_text(text)     # 📝 escribe el nuevo mensaje
+	label2.clear()               
+	label2.append_text(text)     
 
 func log_mensj(text):
 	print(text)
 	var label= $Panel/RichTextLabel2
 	$Panel/RichTextLabel2.append_text(text + "\n")
-	label.clear()               # 🧹 limpia mensajes anteriores
-	label.append_text(text)     # 📝 escribe el nuevo mensaje
+	label.clear()               
+	label.append_text(text)    
 
 
 func log_mensj2(text):
 	print(text)
 	var label= $Panel/RichTextLabel3
 	$Panel/RichTextLabel3.append_text(text + "\n")
-	label.clear()               # 🧹 limpia mensajes anteriores
-	label.append_text(text)     # 📝 escribe el nuevo mensaje
+	label.clear()               
+	label.append_text(text)     
 
 
 func _on_continue_pressed() -> void:
@@ -417,4 +414,4 @@ func _on_continue_pressed() -> void:
 		get_tree().change_scene_to_file("res://Mision_4/Scenes/Ganaste.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Mision_4/Scenes/Perdiste.tscn")
-	pass # Replace with function body.
+	pass 

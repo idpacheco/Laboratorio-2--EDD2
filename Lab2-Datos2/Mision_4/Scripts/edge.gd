@@ -7,14 +7,14 @@ extends Line2D
 
 @onready var label: Label = $Label
 
-# Colores configurables
+
 var base_color_ok := Color(0, 1, 0)
 var base_color_warning := Color(1, 1, 0)
 var base_color_full := Color(1, 0, 0)
 var highlight_color := Color(1, 0, 1)
 var error_color := Color(1, 0, 0)
 
-# Estado actual del color real
+
 var current_base_color := Color(0, 1, 0)
 
 var arrow_size := 20.0
@@ -32,14 +32,14 @@ func update_edge():
 		var p1 = from_node.position
 		var p2 = to_node.position
 
-		# Dibujar la flecha usando puntos del Line2D
+		# Dibujar flecha
 		_draw_arrow(p1, p2)
 
-		# Texto
+		# Texto capacidad
 		label.position = (p1 + p2) / 2 - position
 		label.text = str(flow) + "/" + str(capacity)
 
-		# Elegir color según flujo
+		# color según flujo
 		if flow >= capacity:
 			current_base_color = base_color_full
 		elif flow > 0:
@@ -49,7 +49,7 @@ func update_edge():
 
 		self.default_color = current_base_color
 
-		# Grosor dinámico
+		# Grosor segun capacidad
 		width = 3 + (flow * 0.5)
 
 		queue_redraw()
@@ -58,22 +58,22 @@ func update_edge():
 func _draw_arrow(p1: Vector2, p2: Vector2):
 	var direction = (p2 - p1).normalized()
 
-	# Base de la flecha alejada del nodo final
+	
 	var arrow_base = p2 - direction * arrow_distance
 
 	var left_point = arrow_base + direction.rotated(arrow_angle) * arrow_size
 	var right_point = arrow_base + direction.rotated(-arrow_angle) * arrow_size
 
-	# Estructura de puntos para Line2D
+	
 	points = [
-		p1, p2,      # línea principal
-		left_point,  # costado izquierdo
+		p1, p2,      
+		left_point,  
 		p2,
-		right_point  # costado derecho
+		right_point  
 	]
 
 
-# -------- Estados --------
+# Estados
 
 func is_full() -> bool:
 	return flow >= capacity
